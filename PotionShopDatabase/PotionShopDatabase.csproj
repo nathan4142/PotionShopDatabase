@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Sql\Data\" />
+    <Folder Include="Sql\Procedures\" />
+  </ItemGroup>
+
 </Project>
