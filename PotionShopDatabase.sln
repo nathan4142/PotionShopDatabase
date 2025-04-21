@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotionShopDatabase", "PotionShopDatabase\PotionShopDatabase.csproj", "{FD43A4F6-9E89-4350-9336-474E9BE888F1}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "F:\Downloads\DataAccessDemo2\DataAccessDemo2\DataAccess\DataAccess.csproj", "{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{FD43A4F6-9E89-4350-9336-474E9BE888F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD43A4F6-9E89-4350-9336-474E9BE888F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD43A4F6-9E89-4350-9336-474E9BE888F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
