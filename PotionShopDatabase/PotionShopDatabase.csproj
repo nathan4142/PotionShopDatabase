@@ -9,7 +9,10 @@
 
   <ItemGroup>
     <Folder Include="Sql\Data\" />
-    <Folder Include="Sql\Procedures\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
