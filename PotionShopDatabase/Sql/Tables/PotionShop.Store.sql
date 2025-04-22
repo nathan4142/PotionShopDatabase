@@ -1,0 +1,15 @@
+﻿IF OBJECT_ID(N'PotionShop.Store') IS NULL
+BEGIN
+	CREATE TABLE PotionShop.Store
+	(
+		StoreID INT NOT NULL IDENTITY(1, 1),
+		[Address] NVARCHAR(64) NOT NULL,
+		StateCode NVARCHAR(2) NOT NULL,
+		ZipCode NVARCHAR(6) NOT NULL,
+
+		CONSTRAINT PK_PotionShop_Store_StoreID PRIMARY KEY CLUSTERED
+		(
+			StoreID ASC
+		)
+	);
+END;
