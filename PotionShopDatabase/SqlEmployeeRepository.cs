@@ -15,7 +15,7 @@ namespace PotionShopDatabase
 
         public Employee CreateEmployee(int storeID, string firstName, string lastName, string employeeHours, int salary, string position, int goldStars)
         {
-            //I cant do this for storeID, salary, or goldStars since they are ints. Ill convert them to strings to check i guess
+            //I cant do this for storeID, salary, or goldStars since they are ints. I'll convert them to strings to check i guess
             ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(storeID));
             ArgumentException.ThrowIfNullOrWhiteSpace(firstName);
             ArgumentException.ThrowIfNullOrWhiteSpace(lastName);
