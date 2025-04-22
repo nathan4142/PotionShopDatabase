@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCEDURE Employee.CreateEmployee
+﻿CREATE OR ALTER PROCEDURE PotionShop.CreateEmployee
 	@StoreID INT,	--I think we need storeID. I am not sure though since its a foreign key
 	@FirstName NVARCHAR(32),
 	@LastName NVARCHAR(32),
