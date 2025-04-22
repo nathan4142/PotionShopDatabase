@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotionShopDatabase", "PotionShopDatabase\PotionShopDatabase.csproj", "{FD43A4F6-9E89-4350-9336-474E9BE888F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PotionShopDatabase", "PotionShopDatabase\PotionShopDatabase.csproj", "{FD43A4F6-9E89-4350-9336-474E9BE888F1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "F:\Downloads\DataAccessDemo2\DataAccessDemo2\DataAccess\DataAccess.csproj", "{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessNotFound", "F:\Downloads\DataAccessDemo2\DataAccessDemo2\DataAccess\DataAccessNotFound.csproj", "{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{65F95867-CA46-4555-9117-9A3C415D3A00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{449F6308-0E25-4A40-9B15-3C8E7E74E4C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F95867-CA46-4555-9117-9A3C415D3A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F95867-CA46-4555-9117-9A3C415D3A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F95867-CA46-4555-9117-9A3C415D3A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F95867-CA46-4555-9117-9A3C415D3A00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
