@@ -32,6 +32,7 @@ namespace PotionShopDatabase.DataDelegates
 
             var p = command.Parameters.Add("EmployeeID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
+
         }
 
         public override Employee Translate(Command command)
