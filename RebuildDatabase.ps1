@@ -1,6 +1,6 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
-   [string] $Database = "nathanproctor"			#PLEASE CHANGE THIS TO YOUR NAME, YOU NEED INDIVIDUALIZED DATABASES
+   [string] $Database = "danielcortez"			#PLEASE CHANGE THIS TO YOUR NAME, YOU NEED INDIVIDUALIZED DATABASES
 )
 
 # This script requires the SQL Server module for PowerShell.
