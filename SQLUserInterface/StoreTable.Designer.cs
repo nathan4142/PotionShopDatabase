@@ -1,6 +1,11 @@
-﻿namespace UI
+﻿using static System.Net.Mime.MediaTypeNames;
+using System.Drawing.Printing;
+using System.Windows.Forms;
+using System.Xml.Linq;
+
+namespace SQLUserInterface
 {
-    partial class DBForm
+    partial class StoreTable
     {
         /// <summary>
         ///  Required designer variable.
@@ -39,7 +44,7 @@
             // label1
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            label1.Font = new Font("Segoe UI", 14F);
+            label1.Font = new System.Drawing.Font("Segoe UI", 14F);
             label1.Location = new Point(50, 41);
             label1.Name = "label1";
             label1.Size = new Size(828, 34);

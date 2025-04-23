@@ -13,12 +13,12 @@ namespace PotionShopDatabase.Models
         public string StateCode { get; }
         public string ZipCode { get; }
 
-        internal Store(int storeID, string address, string stateCode, string ZipCode)
+        internal Store(int storeID, string address, string stateCode, string zipCode)
         {
             StoreID = storeID;
             Address = address;
             StateCode = stateCode;
-            ZipCode = ZipCode;
+            ZipCode = zipCode;
         }
 
     }

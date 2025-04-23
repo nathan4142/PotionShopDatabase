@@ -1,4 +1,4 @@
-﻿CREATE OR ALTER PROCDEURE Store.CreateStore
+﻿CREATE OR ALTER PROCEDURE PotionShop.CreateStore
 	@Address NVARCHAR(64),
 	@StateCode NVARCHAR(2),
 	@ZipCode NVARCHAR(6),

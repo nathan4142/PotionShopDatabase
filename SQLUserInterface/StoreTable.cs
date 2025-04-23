@@ -1,11 +1,11 @@
-using PotionShopDatabase;
 using System.Data;
+using PotionShopDatabase;
 
-namespace UI
+namespace SQLUserInterface
 {
-    public partial class DBForm : Form
+    public partial class StoreTable : Form
     {
-        public DBForm()
+        public StoreTable()
         {
             InitializeComponent();
             ReadStores();

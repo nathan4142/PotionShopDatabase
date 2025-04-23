@@ -10,5 +10,7 @@ namespace PotionShopDatabase
     public interface IStoreRepository
     {
         Store CreateStore(string address, string stateCode, string zipCode);
+
+        IReadOnlyList<Store> GetAllStores();
     }
 }
