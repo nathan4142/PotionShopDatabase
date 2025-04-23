@@ -72,7 +72,6 @@ namespace SQLUserInterface
             // 
             // ux_DeleteStore
             // 
-            ux_DeleteStore.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             ux_DeleteStore.Location = new Point(760, 78);
             ux_DeleteStore.Name = "ux_DeleteStore";
             ux_DeleteStore.Size = new Size(118, 29);
@@ -94,7 +93,7 @@ namespace SQLUserInterface
             ux_StoreTable.Size = new Size(866, 338);
             ux_StoreTable.TabIndex = 4;
             // 
-            // DBForm
+            // StoreTable
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -105,7 +104,7 @@ namespace SQLUserInterface
             Controls.Add(ux_AddStore);
             Controls.Add(label1);
             Margin = new Padding(3, 4, 3, 4);
-            Name = "DBForm";
+            Name = "StoreTable";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)ux_StoreTable).EndInit();
             ResumeLayout(false);

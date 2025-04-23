@@ -25,6 +25,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PotionShopDataTests", "EmployeeDataTests\PotionShopDataTests.csproj", "{B7FCAF6B-E043-4187-85E7-95AF56886E1A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLUserInterface", "SQLUserInterface\SQLUserInterface.csproj", "{DCCE9C90-CC77-4505-80AF-890CC952C9C5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{65F95867-CA46-4555-9117-9A3C415D3A00} = {65F95867-CA46-4555-9117-9A3C415D3A00}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

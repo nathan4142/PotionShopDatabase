@@ -2,5 +2,5 @@
 AS
 
 SELECT S.StoreID, S.[Address], S.StateCode, S.ZipCode
-FROM Person.Store S;
+FROM PotionShop.Store S;
 GO
