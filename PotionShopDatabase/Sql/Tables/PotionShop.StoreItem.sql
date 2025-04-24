@@ -81,11 +81,11 @@ END;
 		FROM sys.foreign_keys fk
 		WHERE fk.parent_object_id = OBJECT_ID(N'PotionShop.StoreItem')     --This table
          AND fk.referenced_object_id = OBJECT_ID(N'PotionShop.Store')	  --Table it references
-         AND fk.[name] = N'FK_PotionShop_StoreItem_PotionShop_Item'	      --The name
+         AND fk.[name] = N'FK_PotionShop_StoreItem_PotionShop_Store'	      --The name
 	)
 BEGIN
 	ALTER TABLE PotionShop.StoreItem		--This table
-	ADD CONSTRAINT [FK_PotionShop_StoreItem_PotionShop_Item] FOREIGN KEY	--This table
+	ADD CONSTRAINT [FK_PotionShop_StoreItem_PotionShop_Store] FOREIGN KEY	--This table
 	(
 		StoreID
 	)
