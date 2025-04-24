@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PotionShopDatabase.Models;
 using System.Data;
+using DataAccess;
 
 namespace PotionShopDatabase.DataDelegates
 {

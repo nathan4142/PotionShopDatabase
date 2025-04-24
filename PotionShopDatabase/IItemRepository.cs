@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace PotionShopDatabase
 {
-    public interface IStoreRepository
+    public interface IItemRepository
     {
-        Store CreateStore(string address, string stateCode, string zipCode);
-
-        IReadOnlyList<Store> GetAllStores();
+        Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID);
     }
 }

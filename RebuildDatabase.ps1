@@ -1,10 +1,6 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
-<<<<<<< HEAD
-   [string] $Database = "zacklatta"			#PLEASE CHANGE THIS TO YOUR NAME, YOU NEED INDIVIDUALIZED DATABASES
-=======
-   [string] $Database = "danielcortez"			#PLEASE CHANGE THIS TO YOUR NAME, YOU NEED INDIVIDUALIZED DATABASES
->>>>>>> b2b51df808dcda6e54a4949dc68ba8f535745917
+   [string] $Database = "nathanproctor"
 )
 
 # This script requires the SQL Server module for PowerShell.
@@ -40,18 +36,16 @@ Write-Host "Creating schema..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Schemas\PotionShop.sql" #I believe this is right
 
 Write-Host "Creating tables..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.Employee.sql" #yes
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.Employee.sql" #yes
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.Store.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.StoreItem.sql"
+#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.StoreItem.sql"
 
 Write-Host "Stored procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateEmployee.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateStore.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllStores.sql"
 <#
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Person.RetrievePersons.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Person.FetchPerson.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Person.GetPerson.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Person.SavePersonAddress.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Person.RetrieveAddressesForPerson.sql"
+
 #>
 
 #Dont think we need this because i think this just replaces the 1, 2, 3, 4 with the home, apartment, etc..

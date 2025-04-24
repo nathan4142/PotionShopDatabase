@@ -18,7 +18,7 @@ namespace PotionShopDatabase.Models
 
         public decimal Price { get; }
 
-        public PotionType PotionType { get; }
+        public PotionType PotionTypeID { get; }
 
         public Item(int i, string n, string id, List<string> ingredients, decimal p, PotionType pt)
         {
@@ -27,7 +27,7 @@ namespace PotionShopDatabase.Models
             ItemDescription = id;
             Ingredients = ingredients;
             Price = p;
-            PotionType = pt;
+            PotionTypeID = pt;
         }
 
 

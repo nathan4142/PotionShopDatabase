@@ -24,5 +24,10 @@ namespace PotionShopDatabase
 
         }
 
+        public IReadOnlyList<Store> GetAllStores()
+        {
+            return executor.ExecuteReader(new GetAllStoresDataDelegate());
+        }
+
     }
 }
