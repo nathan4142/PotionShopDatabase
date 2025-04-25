@@ -41,7 +41,7 @@ BEGIN
 		StoreID
 	);
 END;
---
+
 INSERT PotionShop.[Order](OrderID, StoreID, OrderedOn)
 VALUES
   (1, 22, '1303-06-16 20:51:27'),
