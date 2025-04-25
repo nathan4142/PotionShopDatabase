@@ -23,10 +23,10 @@ namespace SQLUserInterface
             ux_tableComboBox.SelectedIndex = 0;
             var chat = new ChatIsThisReal();
             chat.Show();
-            MessageBox.Show("You have (1) new message!");
 
-            var pong = new Pong();
-            pong.Show();
+            //MessageBox.Show("You have (1) new message!");
+
+
         }
 
         private void ux_openTableButton_Click(object sender, EventArgs e)
