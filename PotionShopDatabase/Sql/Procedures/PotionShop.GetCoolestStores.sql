@@ -12,4 +12,6 @@ BEGIN
         S.StoreID, S.[Address], S.StateCode, S.ZipCode
     HAVING 
         SUM(E.GoldStars) >= @GoldStars
+
+    ORDER BY TotalGoldStars DESC;
 END

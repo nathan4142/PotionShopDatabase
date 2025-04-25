@@ -18,6 +18,7 @@ namespace SQLUserInterface
 
             ux_tableComboBox.Items.Add("Store");
             ux_tableComboBox.Items.Add("Employee");
+            ux_tableComboBox.Items.Add("Aggregates");
 
             ux_tableComboBox.SelectedIndex = 0;
 
@@ -37,6 +38,11 @@ namespace SQLUserInterface
             {
                 var employeeTable = new EmployeeTable();
                 employeeTable.Show();
+            }
+            else if (selectedTable == "Aggregates")
+            {
+                var aggregateTable = new AggregateTables();
+                aggregateTable.Show();
             }
             else
             {
