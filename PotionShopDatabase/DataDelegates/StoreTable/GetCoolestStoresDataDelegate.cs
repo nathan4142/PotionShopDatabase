@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace PotionShopDatabase.DataDelegates
 {
     internal class GetCoolestStoresDataDelegate(int goldStars)
-        : DataReaderDelegate<IReadOnlyList<Store>>("PotionShop.GetCoolestStores")
+        : DataReaderDelegate<IReadOnlyList<(Store Store, int TotalGoldStars)>>("PotionShop.GetCoolestStores")
     {
 
         public override void PrepareCommand(Command command)
@@ -18,17 +18,21 @@ namespace PotionShopDatabase.DataDelegates
 
             command.Parameters.AddWithValue("GoldStars", goldStars);
         }
-        public override IReadOnlyList<Store> Translate(Command command, IDataRowReader reader)
+        public override IReadOnlyList<(Store Store, int TotalGoldStars)> Translate(Command command, IDataRowReader reader)
         {
-            var stores = new List<Store>();
+            var stores = new List<(Store, int)>();
 
             while (reader.Read())
             {
-                stores.Add(new Store(
+                var store = new Store(
                     reader.GetInt32("StoreID"),
                     reader.GetString("Address"),
                     reader.GetString("StateCode"),
-                    reader.GetString("ZipCode")));
+                    reader.GetString("ZipCode"));
+
+                int totalGoldStars = reader.GetInt32("TotalGoldStars");
+
+                stores.Add((store, totalGoldStars));
             }
 
             return stores;

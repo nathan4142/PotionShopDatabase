@@ -13,6 +13,6 @@ namespace PotionShopDatabase
 
         IReadOnlyList<Store> GetAllStores();
 
-        IReadOnlyList<Store> GetCoolestStores(int goldStars);
+        IReadOnlyList<(Store Store, int TotalGoldStars)> GetCoolestStores(int goldStars);
     }
 }

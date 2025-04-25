@@ -29,7 +29,7 @@ namespace PotionShopDatabase
             return executor.ExecuteReader(new GetAllStoresDataDelegate());
         }
 
-        public IReadOnlyList<Store> GetCoolestStores(int goldStars)
+        public IReadOnlyList<(Store, int)> GetCoolestStores(int goldStars)
         {
             return executor.ExecuteReader(new GetCoolestStoresDataDelegate(goldStars));
         }

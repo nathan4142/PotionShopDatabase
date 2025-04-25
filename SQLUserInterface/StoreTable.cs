@@ -65,7 +65,7 @@ namespace SQLUserInterface
             int goldStars = (int)ux_numGoldStars.Value;
             var coolestStores = repo.GetCoolestStores(goldStars);
 
-            foreach (var store in coolestStores)
+            foreach (var (store, goldstars) in coolestStores)
             {
                 var row = dataTable.NewRow();
 
@@ -73,7 +73,8 @@ namespace SQLUserInterface
                 row["Address"] = store.Address;
                 row["StateCode"] = store.StateCode;
                 row["ZipCode"] = store.ZipCode;
-                row["TotalGoldStars"] = store.TotalGoldStars;
+                //row["TotalGoldStars"] = store.TotalGoldStars;
+                row["TotalGoldStars"] = goldstars;
                 dataTable.Rows.Add(row);
             }
 
