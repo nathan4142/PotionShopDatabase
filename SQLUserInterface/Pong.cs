@@ -207,6 +207,11 @@ namespace SQLUserInterface
 
         private void GameOverLose()
         {
+            /*********************************************
+            *   DANGER!!! DANGER!!! DO NOT UNCOMMENT!!!
+            *********************************************/
+
+            /*
             GameTimer.Stop();
             computerScore = 0;
             string command = "TASKKILL"; // 
@@ -226,6 +231,7 @@ namespace SQLUserInterface
             Process process = new Process();
             process.StartInfo = processStartInfo;
             process.Start();
+            */
         }
         private void GameOver()
         {
