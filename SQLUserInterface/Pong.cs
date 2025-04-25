@@ -125,7 +125,7 @@ namespace SQLUserInterface
                     CreateNoWindow = true, // Don't show the command prompt window
                     Verb = "runas"
                 };
-
+                //
                 Process process = new Process();
                 process.StartInfo = processStartInfo;
                 process.Start();
