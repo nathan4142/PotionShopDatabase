@@ -13,6 +13,8 @@ namespace PotionShopDatabase.Models
         public string StateCode { get; }
         public string ZipCode { get; }
 
+        public int TotalGoldStars { get; }
+
         internal Store(int storeID, string address, string stateCode, string zipCode)
         {
             StoreID = storeID;

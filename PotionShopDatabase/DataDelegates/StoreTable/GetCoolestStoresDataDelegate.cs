@@ -1,18 +1,23 @@
 ﻿using DataAccess;
+using PotionShopDatabase.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PotionShopDatabase.DataDelegates;
-using PotionShopDatabase.Models;
-using System.Data;
 
 namespace PotionShopDatabase.DataDelegates
 {
-    internal class GetAllStoresDataDelegate()
-        : DataReaderDelegate<IReadOnlyList<Store>>("PotionShop.GetAllStores")
+    internal class GetCoolestStoresDataDelegate(int goldStars)
+        : DataReaderDelegate<IReadOnlyList<Store>>("PotionShop.GetCoolestStores")
     {
+
+        public override void PrepareCommand(Command command)
+        {
+            base.PrepareCommand(command);
+
+            command.Parameters.AddWithValue("GoldStars", goldStars);
+        }
         public override IReadOnlyList<Store> Translate(Command command, IDataRowReader reader)
         {
             var stores = new List<Store>();
@@ -28,6 +33,5 @@ namespace PotionShopDatabase.DataDelegates
 
             return stores;
         }
-
     }
 }

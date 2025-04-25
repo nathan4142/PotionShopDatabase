@@ -12,5 +12,7 @@ namespace PotionShopDatabase
         Store CreateStore(string address, string stateCode, string zipCode);
 
         IReadOnlyList<Store> GetAllStores();
+
+        IReadOnlyList<Store> GetCoolestStores(int goldStars);
     }
 }

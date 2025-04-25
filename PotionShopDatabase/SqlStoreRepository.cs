@@ -29,5 +29,10 @@ namespace PotionShopDatabase
             return executor.ExecuteReader(new GetAllStoresDataDelegate());
         }
 
+        public IReadOnlyList<Store> GetCoolestStores(int goldStars)
+        {
+            return executor.ExecuteReader(new GetCoolestStoresDataDelegate(goldStars));
+        }
+
     }
 }

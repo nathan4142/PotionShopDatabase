@@ -12,5 +12,7 @@ namespace PotionShopDatabase
 
 
         Employee CreateEmployee(int storeID, string firstName, string lastName, string employeeHours, int salary, string position, int goldStars);
+
+        IReadOnlyList<Employee> GetAllEmployees();
     }
 }

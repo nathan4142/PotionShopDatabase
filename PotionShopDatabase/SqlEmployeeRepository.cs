@@ -27,5 +27,10 @@ namespace PotionShopDatabase
             var d = new CreateEmployeeDataDelegate(storeID, firstName, lastName, employeeHours, salary, position, goldStars);
             return executor.ExecuteNonQuery(d);
         }
+
+        public IReadOnlyList<Employee> GetAllEmployees()
+        {
+            return executor.ExecuteReader(new GetAllEmployeesDataDelegate());
+        }
     }
 }
