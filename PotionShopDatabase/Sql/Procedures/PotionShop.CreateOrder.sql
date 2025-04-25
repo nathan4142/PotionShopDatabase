@@ -1,6 +1,6 @@
 ﻿CREATE OR ALTER PROCEDURE PotionShop.CreateOrder
 	@StoreID INT,
-	@OrderedOn DATETIME,
+	@OrderedOn DATETIME2,
 	@OrderID INT OUTPUT
 AS
 
