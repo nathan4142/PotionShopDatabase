@@ -10,5 +10,7 @@ namespace PotionShopDatabase
     public interface IItemRepository
     {
         Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID);
+
+        IReadOnlyList<Item> GetAllItems();
     }
 }

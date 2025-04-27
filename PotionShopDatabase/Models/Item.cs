@@ -12,20 +12,15 @@ namespace PotionShopDatabase.Models
 
         public string Name { get; }
 
-        public string ItemDescription { get; }
-
-        public List<string> Ingredients { get; }
 
         public decimal Price { get; }
 
         public PotionType PotionTypeID { get; }
 
-        public Item(int i, string n, string id, List<string> ingredients, decimal p, PotionType pt)
+        public Item(int i, string n, decimal p, PotionType pt)
         {
             ItemID = i;
             Name = n;
-            ItemDescription = id;
-            Ingredients = ingredients;
             Price = p;
             PotionTypeID = pt;
         }

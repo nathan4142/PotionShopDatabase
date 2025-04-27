@@ -34,7 +34,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("GoldStars");
 
             //Goes to the repository which is where we will call the methods from
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             //Calls the get all employees method and employees it in the employees variable
             var employees = repo.GetAllEmployees();
             //For each of the employees in employees, we add it to the dataTable

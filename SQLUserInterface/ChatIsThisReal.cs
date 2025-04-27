@@ -60,8 +60,6 @@ namespace SQLUserInterface
             this.KeyDown += new KeyEventHandler(Form_KeyDown);
             this.Load += new EventHandler(Form_Load);
             this.FormClosing += new FormClosingEventHandler(Form_FormClosing);
-            var pong = new Pong(this);
-            pong.Show();
         }
 
         private void Form_Load(object sender, EventArgs e)
