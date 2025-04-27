@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace SQLUserInterface
 {
-    public partial class Items : Form
+    public partial class ItemTable : Form
     {
-        public Items()
+        public ItemTable()
         {
             InitializeComponent();
             ReadItems();

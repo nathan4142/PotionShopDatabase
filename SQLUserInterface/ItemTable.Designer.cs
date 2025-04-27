@@ -1,6 +1,6 @@
 ﻿namespace SQLUserInterface
 {
-    partial class Items
+    partial class ItemTable
     {
         /// <summary>
         ///  Required designer variable.

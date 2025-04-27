@@ -11,6 +11,6 @@ namespace PotionShopDatabase
     {
         Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID);
 
-        IReadOnlyList<Store> GetAllItems();
+        IReadOnlyList<Item> GetAllItems();
     }
 }

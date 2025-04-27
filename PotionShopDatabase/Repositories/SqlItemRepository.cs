@@ -17,9 +17,9 @@ namespace PotionShopDatabase
         {
             throw new NotImplementedException();
         }
-        public IReadOnlyList<Store> GetAllItems()
+        public IReadOnlyList<Item> GetAllItems()
         {
-            return executor.ExecuteReader(new GetAllStoresDataDelegate());
+            return executor.ExecuteReader(new GetAllItemsDataDelegate());
         }
 
         /*
