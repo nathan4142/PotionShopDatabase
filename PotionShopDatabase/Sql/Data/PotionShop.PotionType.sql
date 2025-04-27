@@ -12,3 +12,12 @@ VALUES
    (4, 'Evil'),
    (5, 'Explosion'),
    (6, 'Charm');
+
+MERGE PotionShop.PotionType T
+USING @PotionTypeStaging S ON S.PotionTypeID = T.PotionTypeID
+WHEN MATCHED AND S.[Name] <> T.[Name] THEN
+   UPDATE
+   SET [Name] = S.[Name]
+WHEN NOT MATCHED THEN
+   INSERT(PotionTypeID, [Name])
+   VALUES(S.PotionTypeID, S.[Name]);

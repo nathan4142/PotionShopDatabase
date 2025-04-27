@@ -114,4 +114,4 @@ VALUES
  (6, 777.02, N'Rubber Chicken Elixir'),
  (3, 902.19, N'Banana Peel Potion'),
  (1, 426.56, N'Flamingo Flamenco Fluid'),
- (4, 734.79, N'Unicorn Snore Smoothie'),
+ (4, 734.79, N'Unicorn Snore Smoothie')
