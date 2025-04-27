@@ -21,7 +21,14 @@ namespace SQLUserInterface
             dataTable.Columns.Add("OrderedOn");
             var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
+
+
+
         }
 
+        private void OrderTable_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

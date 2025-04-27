@@ -10,5 +10,7 @@ namespace PotionShopDatabase
     public interface IOrderRepository
     {
         Order CreateOrder(int storeID, DateTime orderedOn);
+
+        IReadOnlyList<Order> GetAllOrders();
     }
 }
