@@ -9,15 +9,13 @@ using System.Threading.Tasks;
 
 namespace PotionShopDatabase.DataDelegates
 {
-    internal class CreateItemDataDelegate(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID): NonQueryDataDelegate<Item>("Item.CreateItem")
+    internal class CreateItemDataDelegate(string name, decimal price, PotionType potionTypeID): NonQueryDataDelegate<Item>("Item.CreateItem")
     {
         public override void PrepareCommand(Command command)
         {
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("Name", name);
-            command.Parameters.AddWithValue("ItemDescription", itemDescription);
-            command.Parameters.AddWithValue("Ingredients", ingredients);
             command.Parameters.AddWithValue("Price", price);
             command.Parameters.AddWithValue("PotionTypeID", potionTypeID);
 
@@ -28,7 +26,7 @@ namespace PotionShopDatabase.DataDelegates
 
         public override Item Translate(Command command)
         {
-            return new Item(command.GetParameterValue<int>("ItemID"), name, itemDescription, ingredients, price, potionTypeID);
+            return new Item(command.GetParameterValue<int>("ItemID"), name, price, potionTypeID);
         }
     }
 }

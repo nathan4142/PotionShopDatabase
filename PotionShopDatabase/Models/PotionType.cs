@@ -8,10 +8,12 @@ namespace PotionShopDatabase.Models
 {
     public enum PotionType
     {
-        Enhance = 1,
-        Health = 2,
-        Skill = 3,
-        Effect = 4
+        Attack = 1,
+        Defence = 2,
+        Health = 3,
+        Evil = 4,
+        Explosion = 5,
+        Charm = 6
 
     }
 }

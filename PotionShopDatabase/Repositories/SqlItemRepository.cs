@@ -15,24 +15,38 @@ namespace PotionShopDatabase
 
         public Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID)
         {
-            //converts ingredients to a string of ingredients that can be tested
-            StringBuilder sb = new();
-            foreach(string s in ingredients)
-            {
-                sb.Append(s);
-                sb.Append(", ");
-            }
-            string ingredientstring = sb.ToString();
-            
-            ArgumentException.ThrowIfNullOrWhiteSpace(name);
-            ArgumentException.ThrowIfNullOrWhiteSpace(itemDescription);
-            ArgumentException.ThrowIfNullOrWhiteSpace(ingredientstring);
-            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(price));
-            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(potionTypeID));
-
-            var d = new CreateItemDataDelegate(name, itemDescription, ingredients, price, potionTypeID);
-            return executor.ExecuteNonQuery(d);
+            throw new NotImplementedException();
         }
+        public IReadOnlyList<Store> GetAllItems()
+        {
+            return executor.ExecuteReader(new GetAllStoresDataDelegate());
+        }
+
+        /*
+        public Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID)
+        {
+        //converts ingredients to a string of ingredients that can be tested
+        StringBuilder sb = new();
+        foreach(string s in ingredients)
+        {
+            sb.Append(s);
+            sb.Append(", ");
+        }
+        string ingredientstring = sb.ToString();
+
+        ArgumentException.ThrowIfNullOrWhiteSpace(name);
+        ArgumentException.ThrowIfNullOrWhiteSpace(itemDescription);
+        ArgumentException.ThrowIfNullOrWhiteSpace(ingredientstring);
+        ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(price));
+        ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(potionTypeID));
+
+        var d = new CreateItemDataDelegate(name, itemDescription, ingredients, price, potionTypeID);
+        return executor.ExecuteNonQuery(d);
+        }
+
+        */
+
+
     }
 
 }
