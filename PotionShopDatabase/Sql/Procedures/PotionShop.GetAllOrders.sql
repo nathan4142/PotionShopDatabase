@@ -2,5 +2,5 @@
 AS
 
 SELECT O.OrderID, O.StoreID, O.OrderedOn
-FROM PotionShop.Orders O;
+FROM PotionShop.[Order] O;
 GO

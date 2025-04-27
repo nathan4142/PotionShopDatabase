@@ -22,13 +22,21 @@ namespace SQLUserInterface
             var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
 
+            foreach (var order in orders)
+            {
+                var row = dataTable.NewRow();
+                row["OrderID"] = order.OrderID;
+                row["StoreID"] = order.StoreID;
+                row["OrderedOn"] = order.OrderedOn;
 
+                dataTable.Rows.Add(row);
+            }
+
+            this.ux_OrderTable.DataSource = dataTable;
 
         }
 
-        private void OrderTable_Load(object sender, EventArgs e)
-        {
-
-        }
+        
+        
     }
 }

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             ux_OrderLabel = new Label();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ux_OrderTable = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)ux_OrderTable).BeginInit();
             SuspendLayout();
             // 
             // ux_OrderLabel
@@ -44,24 +44,25 @@
             ux_OrderLabel.Text = "List of All Orders";
             ux_OrderLabel.TextAlign = ContentAlignment.TopCenter;
             // 
-            // dataGridView1
+            // ux_OrderTable
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(77, 171);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(931, 445);
-            dataGridView1.TabIndex = 1;
+            ux_OrderTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ux_OrderTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ux_OrderTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ux_OrderTable.Location = new Point(77, 171);
+            ux_OrderTable.Name = "ux_OrderTable";
+            ux_OrderTable.Size = new Size(931, 445);
+            ux_OrderTable.TabIndex = 1;
             // 
             // OrderTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1090, 668);
-            Controls.Add(dataGridView1);
+            Controls.Add(ux_OrderTable);
             Controls.Add(ux_OrderLabel);
             Name = "OrderTable";
-            Load += OrderTable_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ux_OrderTable).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -69,6 +70,6 @@
         #endregion
 
         private Label ux_OrderLabel;
-        private DataGridView dataGridView1;
+        private DataGridView ux_OrderTable;
     }
 }
