@@ -28,17 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ux_OrderLabel = new Label();
+            dataGridView1 = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // ux_OrderLabel
+            // 
+            ux_OrderLabel.AutoSize = true;
+            ux_OrderLabel.Font = new Font("Segoe UI", 14F);
+            ux_OrderLabel.Location = new Point(454, 92);
+            ux_OrderLabel.Name = "ux_OrderLabel";
+            ux_OrderLabel.Size = new Size(151, 25);
+            ux_OrderLabel.TabIndex = 0;
+            ux_OrderLabel.Text = "List of All Orders";
+            ux_OrderLabel.TextAlign = ContentAlignment.TopCenter;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(77, 171);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(931, 445);
+            dataGridView1.TabIndex = 1;
             // 
             // OrderTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1090, 668);
+            Controls.Add(dataGridView1);
+            Controls.Add(ux_OrderLabel);
             Name = "OrderTable";
-            Size = new Size(1330, 787);
+            Load += OrderTable_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label ux_OrderLabel;
+        private DataGridView dataGridView1;
     }
 }

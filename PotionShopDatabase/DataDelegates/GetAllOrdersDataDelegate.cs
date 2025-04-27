@@ -1,15 +1,16 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DataAccess;
+using PotionShopDatabase.DataDelegates;
 using PotionShopDatabase.Models;
 using System.Data;
 
 namespace PotionShopDatabase.DataDelegates
 {
-    internal class GetAllOrdersDataDelegate
+    internal class GetAllOrdersDataDelegate()
         : DataReaderDelegate<IReadOnlyList<Order>>("PotionShop.GetAllOrders")
     {
         public override IReadOnlyList<Order> Translate(Command command, IDataRowReader reader)
@@ -20,8 +21,9 @@ namespace PotionShopDatabase.DataDelegates
                 orders.Add(new Order(
                     reader.GetInt32("OrderID"),
                     reader.GetInt32("StoreID"),
-                    reader.GetDateTime("OrderedOn")));
+                    reader.GetDateTime("OrderedOn", DateTimeKind.Unspecified)));
             }
             return orders;
+        }
     }
 }
