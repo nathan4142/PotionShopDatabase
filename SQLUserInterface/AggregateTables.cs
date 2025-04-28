@@ -28,7 +28,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
             dataTable.Columns.Add("TotalGoldStars");
 
-            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez1011;Integrated Security=SSPI;");
+            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             int goldStars = (int)ux_numGoldStars.Value;
             var coolestStores = repo.GetCoolestStores(goldStars);
 

@@ -14,7 +14,7 @@ BEGIN
 		),
 
 		CONSTRAINT [FK_PotionShop_StoreItem_PotionShop_Item] FOREIGN KEY(ItemID) --Might want to change its name but idk
-		REFERENCES PotionShop.Store(ItemID),
+		REFERENCES PotionShop.Item(ItemID),
 
 		CONSTRAINT [FK_PotionShop_StoreItem_PotionShop_Store] FOREIGN KEY(StoreID)
 		REFERENCES PotionShop.Store(StoreID)
@@ -27,25 +27,7 @@ END;
  * Unique Constraints
  ****************************/
 
- /*
- I Dont even know if we need to have a unique constraint on ItemID and StoreID. It might make things weird. Ill comment it out and when we
- test it and we see that it needs a unique constraint we can easily add it back
- */
- IF NOT EXISTS
-	(
-		SELECT *
-		FROM sys.key_constraints kc
-		WHERE kc.parent_object_id = OBJECT_ID(N'PotionShop.StoreItem')
-			AND kc.[name] = N'UK_PotionShop_StoreItem_ItemID_StoreID'
-	)
-BEGIN
-	ALTER TABLE PotionShop.StoreItem
-	ADD CONSTRAINT [UK_PotionShop_StoreItem_ItemID_StoreID] UNIQUE NONCLUSTERED
-	(
-		ItemID,
-		StoreID
-	)
-END;
+
 
 
 

@@ -19,7 +19,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("OrderID");
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("OrderedOn");
-            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez1011;Integrated Security=SSPI;");
+            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
 
             foreach (var order in orders)
