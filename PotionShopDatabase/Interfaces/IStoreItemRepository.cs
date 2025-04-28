@@ -18,5 +18,9 @@ namespace PotionShopDatabase
         /// <param name="ulp">listed price of the uten</param>
         /// <returns>the new instance of store item</returns>
         StoreItem CreateStoreItem(int itemID, int storeID, int quantity, decimal ulp);
+
+
+        IReadOnlyList<StoreItem> GetAllStoreItems();
+
     }
 }

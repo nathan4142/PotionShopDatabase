@@ -19,7 +19,9 @@ namespace SQLUserInterface
             ux_tableComboBox.Items.Add("Store");
             ux_tableComboBox.Items.Add("Employee");
             ux_tableComboBox.Items.Add("Order");
-            ux_tableComboBox.Items.Add("Items");
+            ux_tableComboBox.Items.Add("OrderItem");
+            ux_tableComboBox.Items.Add("StoreItem");
+            ux_tableComboBox.Items.Add("Item");
             ux_tableComboBox.Items.Add("Aggregates");
 
             ux_tableComboBox.SelectedIndex = 0;
@@ -49,6 +51,11 @@ namespace SQLUserInterface
             {
                 var orderTable = new OrderTable();
                 orderTable.Show();
+            }
+            else if (selectedTable == "StoreItem")
+            {
+                var storeItemTable = new StoreItemTable();
+                storeItemTable.Show();
             }
             else if (selectedTable == "Item")
             {

@@ -24,6 +24,12 @@ namespace PotionShopDatabase
             var d = new CreateStoreItemDataDelegate(itemID, storeID, quantity, ulp);
             return executor.ExecuteNonQuery(d);
         }
+
+        public IReadOnlyList<StoreItem> GetAllStoreItems()
+        {
+            return executor.ExecuteReader(new GetAllStoreItemsDataDelegate());
+        }
+
     }
     
 }
