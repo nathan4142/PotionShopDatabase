@@ -30,3 +30,13 @@ BEGIN
       [Name] ASC
    )
 END;
+
+
+INSERT PotionShop.PotionType(PotionTypeID, [Name])
+VALUES
+   (1, 'Attack'),
+   (2, 'Defence'),
+   (3, 'Health'),
+   (4, 'Evil'),
+   (5, 'Explosion'),
+   (6, 'Charm');

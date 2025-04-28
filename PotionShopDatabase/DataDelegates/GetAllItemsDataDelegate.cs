@@ -22,7 +22,9 @@ namespace PotionShopDatabase.DataDelegates
                     reader.GetInt32("ItemID"),
                     reader.GetString("Name"),
                     reader.GetValue<decimal>("Price"),
-                    (PotionType)reader.GetByte("PotionTypeID")));
+                    (PotionType)reader.GetInt32("PotionTypeID")));
+                //(PotionType)reader.GetByte("PotionTypeID")));
+
             }
 
             return items;

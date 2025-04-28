@@ -14,9 +14,10 @@ BEGIN
 		(
 			ItemID ASC
 		),
-
+		
 		CONSTRAINT FK_PotionShop_Item_PotionShop_PotionType FOREIGN KEY(PotionTypeID)
 		REFERENCES PotionShop.PotionType(PotionTypeID)
+		
 	);
 END;
 
@@ -39,6 +40,8 @@ BEGIN
    )
 END;
 
+
+/*
 /****************************
  * Foreign Keys Constraints
  ****************************/
@@ -62,7 +65,7 @@ BEGIN
    );
 END;
 
-
+*/
 
 
 INSERT PotionShop.Item(PotionTypeID, Price, [Name])

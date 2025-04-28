@@ -15,8 +15,8 @@ namespace PotionShopDatabase.Models
 
         public decimal Price { get; }
 
+        //public PotionType PotionTypeID { get; }
         public PotionType PotionTypeID { get; }
-
         public Item(int i, string n, decimal p, PotionType pt)
         {
             ItemID = i;
