@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace PotionShopDatabase.Models
 {
-    public class OrderItem
+    public class OrderStoreItem
     {
         public int OrderID { get; }
         public int StoreItemID { get; }
         public int ItemQuantity { get; }
 
-        internal OrderItem(int orderID, int storeItemID, int itemQuantity)
+        internal OrderStoreItem(int orderID, int storeItemID, int itemQuantity)
         {
             OrderID = orderID;
             StoreItemID = storeItemID;

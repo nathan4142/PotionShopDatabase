@@ -10,7 +10,7 @@ using System.Data;
 namespace PotionShopDatabase.DataDelegates
 {
     internal class CreateOrderItemDataDelegate(int orderID, int storeItemID, int itemQuantity)
-        : NonQueryDataDelegate<OrderItem>("OrderItem.CreateOrderItem")
+        : NonQueryDataDelegate<OrderStoreItem>("OrderItem.CreateOrderItem")
     {
         public override void PrepareCommand(Command command)
         {
@@ -21,11 +21,11 @@ namespace PotionShopDatabase.DataDelegates
             command.Parameters.AddWithValue("ItemQuantity", itemQuantity);
         }
 
-        public override OrderItem Translate(Command command)
+        public override OrderStoreItem Translate(Command command)
         {
             // Since OrderItem has a composite key and no identity output,
             // we just return a new instance with the provided values.
-            return new OrderItem(orderID, storeItemID, itemQuantity);
+            return new OrderStoreItem(orderID, storeItemID, itemQuantity);
         }
     }
 }

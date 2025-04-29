@@ -43,6 +43,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.PotionType.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.Item.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.StoreItem.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.OrderStoreItem.sql"
 
 Write-Host "Stored procedures..."
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateEmployee.sql"
@@ -54,6 +55,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetCoolestStores.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllItems.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateItem.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllOrderStoreItems.sql"
 Write-Host "Inserting data..."
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Data\PotionShop.PotionType.sql"
 
