@@ -1,4 +1,5 @@
 ﻿using PotionShopDatabase;
+using PotionShopDatabase.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,5 +50,41 @@ namespace SQLUserInterface
 
 
         }
+
+        private void ux_getMonthlyRankButton_Click(object sender, EventArgs e)
+        {
+            DataTable dataTable = new DataTable();
+
+            dataTable.Columns.Add("Year");
+            dataTable.Columns.Add("Month");
+            dataTable.Columns.Add("StoreID");
+            dataTable.Columns.Add("Address");
+            dataTable.Columns.Add("StateCode");
+            dataTable.Columns.Add("ZipCode");
+            dataTable.Columns.Add("Sales");
+            dataTable.Columns.Add("Rank");
+
+            var repo = new SqlMonthlyRankOfStoresRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            DateTime firstDate = ux_firstDateTimePicker.Value;
+            DateTime secondDate = ux_secondDateTimePicker.Value;
+            var rankedStores = repo.GetMonthlyRankOfStores(firstDate, secondDate);
+
+            foreach(var (year, month, store, sales, rank) in rankedStores )
+            {
+                var row = dataTable.NewRow();
+
+                row["Year"] = year;
+                row["Month"] = month;
+                row["StoreID"] = store.StoreID;
+                row["Address"] = store.Address;
+                row["StateCode"] = store.StateCode;
+                row["ZipCode"] = store.ZipCode;
+                row["Sales"] = sales;
+                row["Rank"] = rank;
+
+            }
+            ux_StoreTable.DataSource = dataTable;
+        }
+
     }
 }
