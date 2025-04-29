@@ -6,14 +6,15 @@ using System.Threading.Tasks;
 using DataAccess;
 using PotionShopDatabase.Models;
 using PotionShopDatabase.DataDelegates;
+using PotionShopDatabase.Interfaces;
 
 namespace PotionShopDatabase
 {
-    public class SqlOrderItemRepository(string connectionString) : IOrderItemRepository
+    public class SqlOrderStoreItemRepository(string connectionString) : IOrderStoreItemRepository
     {
         private readonly SqlCommandExecutor executor = new(connectionString);
-
-        public OrderItem CreateOrderItem(int orderID, int storeItemID, int itemQuantity)
+        /*
+        public OrderStoreItem CreateOrderItem(int orderID, int storeItemID, int itemQuantity)
         {
             
             ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(orderID));
@@ -22,6 +23,12 @@ namespace PotionShopDatabase
 
             var d = new CreateOrderItemDataDelegate(orderID, storeItemID, itemQuantity);
             return executor.ExecuteNonQuery(d);
+        }
+        */
+
+        public IReadOnlyList<OrderStoreItem> GetAllOrderStoreItems()
+        {
+            return executor.ExecuteReader(new GetAllOrderStoreItemsDataDelegate());
         }
     }
 }

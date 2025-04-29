@@ -22,6 +22,7 @@ namespace SQLUserInterface
             ux_tableComboBox.Items.Add("OrderItem");
             ux_tableComboBox.Items.Add("StoreItem");
             ux_tableComboBox.Items.Add("Item");
+            ux_tableComboBox.Items.Add("OrderStoreItem");
             ux_tableComboBox.Items.Add("Aggregates");
 
             ux_tableComboBox.SelectedIndex = 0;
@@ -61,6 +62,11 @@ namespace SQLUserInterface
             {
                 var itemTable = new ItemTable();
                 itemTable.Show();
+            }
+            else if (selectedTable == "OrderStoreItem")
+            {
+                var OrderStoreItemTable = new OrderStoreItemTable();
+                OrderStoreItemTable.Show();
             }
             else if (selectedTable == "Aggregates")
             {

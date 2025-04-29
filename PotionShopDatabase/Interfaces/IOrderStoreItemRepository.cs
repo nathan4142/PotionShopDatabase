@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PotionShopDatabase
+namespace PotionShopDatabase.Interfaces
 {
-    internal interface IOrderItemRepository
+    public interface IOrderStoreItemRepository
     {
-        OrderItem CreateOrderItem(int orderID, int storeItemID, int itemQuantity);
+        IReadOnlyList<OrderStoreItem> GetAllOrderStoreItems();
     }
 }
