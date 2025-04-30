@@ -1,6 +1,6 @@
 Param(
-   [string] $Server = "mssql.cs.ksu.edu",
-   [string] $Database = "zalatta"
+   [string] $Server = "(localdb)\MSSQLLocalDb",
+   [string] $Database = "nathanproctor"
 )
 
 # This script requires the SQL Server module for PowerShell.
@@ -46,17 +46,36 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Tables\PotionShop.OrderStoreItem.sql"
 
 Write-Host "Stored procedures..."
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateEmployee.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateStore.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllStores.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllEmployees.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllOrders.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllStoreItems.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetCoolestStores.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetMonthlyRankOfStoresByProfit.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllItems.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.CreateItem.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\PotionShop.GetAllOrderStoreItems.sql"
+#Employee Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.CreateEmployee.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.GetAllEmployees.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.DeleteEmployee.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.EditEmployeeHours.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.EditEmployeeGoldStars.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.EditEmployeePosition.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Employee\PotionShop.EditEmployeeSalary.sql"
+#Store Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.CreateStore.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetAllStores.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetCoolestStores.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetMonthlyRankOfStoresByProfit.sql"
+#StoreItem Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.GetAllStoreItems.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.CreateStoreItem.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.DeleteStoreItem.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.EditStoreItemQuantity.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.EditStoreItemUnitListPrice.sql"
+#Order Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Order\PotionShop.GetAllOrders.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Order\PotionShop.CreateOrder.sql"
+#Item Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Item\PotionShop.GetAllItems.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Item\PotionShop.CreateItem.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Item\PotionShop.DeleteItem.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Item\PotionShop.EditItemPrice.sql"
+#OrderStoreItem Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\OrderStoreItem\PotionShop.GetAllOrderStoreItems.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\OrderStoreItem\PotionShop.CreateOrderStoreItem.sql"
 Write-Host "Inserting data..."
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Data\PotionShop.PotionType.sql"
 

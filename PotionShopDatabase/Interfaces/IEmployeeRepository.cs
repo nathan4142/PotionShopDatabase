@@ -9,10 +9,9 @@ namespace PotionShopDatabase
 {
     public interface IEmployeeRepository
     {
-
-
         Employee CreateEmployee(int storeID, string firstName, string lastName, string employeeHours, int salary, string position, int goldStars);
-
         IReadOnlyList<Employee> GetAllEmployees();
+
+        bool EditEmployeeHours(int employeeID, string newHours);
     }
 }
