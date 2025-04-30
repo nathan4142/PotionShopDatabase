@@ -13,5 +13,7 @@ namespace PotionShopDatabase
         IReadOnlyList<Employee> GetAllEmployees();
 
         bool EditEmployeeHours(int employeeID, string newHours);
+
+        bool EditEmployeeGoldStars(int employeeID, int newGoldStars);
     }
 }

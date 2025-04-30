@@ -101,7 +101,36 @@ namespace SQLUserInterface
 
         private void ux_EditEmployeeGoldStars_Click(object sender, EventArgs e)
         {
+            //Gets the employeeID from the user
+            string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the EmployeeID of the employee whose gold stars you want to edit:",
+            "Edit Employee Gold Stars",
+            "");
+            if (string.IsNullOrWhiteSpace(employeeIDInput))
+            {
+                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(employeeIDInput) > 500)
+            {
+                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Gets the new hours from the user
+            string newGoldStarsInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the new gold stars for the employee:",
+            "Edit Employee Gold Stars",
+            "");
 
+            string employeeID = employeeIDInput;
+            string updatedGoldStars = newGoldStarsInput;
+
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            bool success = repo.EditEmployeeGoldStars(Int32.Parse(employeeID), Int32.Parse(updatedGoldStars));
+            if (success)
+            {
+                ReadEmployees();
+            }
         }
 
         private void ux_EditEmployeePosition_Click(object sender, EventArgs e)
