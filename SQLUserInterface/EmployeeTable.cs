@@ -140,7 +140,36 @@ namespace SQLUserInterface
 
         private void ux_EditEmployeeSalary_Click(object sender, EventArgs e)
         {
+            //Gets the employeeID from the user
+            string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the EmployeeID of the employee whose salary you want to edit:",
+            "Edit Employee Salary",
+            "");
+            if (string.IsNullOrWhiteSpace(employeeIDInput))
+            {
+                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(employeeIDInput) > 500)
+            {
+                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Gets the new hours from the user
+            string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the new salary for the employee:",
+            "Edit Employee Salary",
+            "");
 
+            string employeeID = employeeIDInput;
+            string updatedSalary = newSalaryInput;
+
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            bool success = repo.EditEmployeeSalary(Int32.Parse(employeeID), Int32.Parse(updatedSalary));
+            if (success)
+            {
+                ReadEmployees();
+            }
         }
     }
 }

@@ -50,5 +50,14 @@ namespace PotionShopDatabase
             var d = new EditEmployeeGoldStarsDataDelegate(employeeID, newGoldStars);
             return executor.ExecuteNonQuery(d);
         }
+
+        public bool EditEmployeeSalary(int employeeID, int newSalary)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(employeeID));
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(newSalary));
+
+            var d = new EditEmployeeSalaryDataDelegate(employeeID, newSalary);
+            return executor.ExecuteNonQuery(d);
+        }
     }
 }
