@@ -107,7 +107,7 @@
             ux_secondDateTimePicker.Name = "ux_secondDateTimePicker";
             ux_secondDateTimePicker.Size = new Size(200, 23);
             ux_secondDateTimePicker.TabIndex = 11;
-            ux_secondDateTimePicker.Value = new DateTime(1800, 12, 31, 0, 0, 0, 0);
+            ux_secondDateTimePicker.Value = new DateTime(1776, 12, 31, 0, 0, 0, 0);
             // 
             // ux_getMonthlyRankButton
             // 
