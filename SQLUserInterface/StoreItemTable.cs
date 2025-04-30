@@ -28,7 +28,7 @@ namespace SQLUserInterface
             table.Columns.Add("Quantity");
             table.Columns.Add("UnitListPrice");
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             var storeItems = repo.GetAllStoreItems();
 
