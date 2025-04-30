@@ -1,9 +1,8 @@
 ﻿CREATE OR ALTER PROCEDURE PotionShop.DeleteItem
-	@PotionName NVARCHAR(100)
+	@ItemID INT
 AS
 Begin
-Merge PotionShop.Item I
-Using (Select @PotionName as [Name]) as E on I.[Name] = E.[Name]
-When Matched Then
-Delete;
+Delete
+From PotionShop.Item
+Where ItemID = @ItemID
 End

@@ -1,5 +1,5 @@
 ﻿CREATE OR ALTER PROCEDURE PotionShop.CreateStoreItem
-	@StoreID INT,	--I think we need storeID. I am not sure though since its a foreign key
+	@StoreID INT,
 	@ItemID INT,
 	@Quantity INT,
 	@UnitListPrice DECIMAL(5,2),
