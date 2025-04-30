@@ -9,8 +9,8 @@ using System.Data;
 
 namespace PotionShopDatabase.DataDelegates
 {
-    internal class CreateOrderItemDataDelegate(int orderID, int storeItemID, int itemQuantity)
-        : NonQueryDataDelegate<OrderStoreItem>("OrderItem.CreateOrderItem")
+    internal class CreateOrderStoreItemDataDelegate(int orderID, int storeItemID, int itemQuantity)
+        : NonQueryDataDelegate<OrderStoreItem>("OrderStoreItem.CreateOrderStoreItem")
     {
         public override void PrepareCommand(Command command)
         {
