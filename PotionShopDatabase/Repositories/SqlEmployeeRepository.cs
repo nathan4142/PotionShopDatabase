@@ -59,5 +59,22 @@ namespace PotionShopDatabase
             var d = new EditEmployeeSalaryDataDelegate(employeeID, newSalary);
             return executor.ExecuteNonQuery(d);
         }
+
+        public bool EditEmployeePosition(int employeeID, string newPosition)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(employeeID));
+            ArgumentException.ThrowIfNullOrWhiteSpace(newPosition);
+
+            var d = new EditEmployeePositionDataDelegate(employeeID, newPosition);
+            return executor.ExecuteNonQuery(d);
+        }
+
+        public bool DeleteEmployee(int employeeID)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(employeeID));
+
+            var d = new DeleteEmployeeDataDelegate(employeeID);
+            return executor.ExecuteNonQuery(d);
+        }
     }
 }

@@ -6,16 +6,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PotionShopDatabase.DataDelegates
-{ 
-    internal class EditEmployeeSalaryDataDelegate : NonQueryDataDelegate<bool>
+{
+    internal class EditEmployeePositionDataDelegate : NonQueryDataDelegate<bool>
     {
         private readonly int employeeID;
-        private readonly int newSalary;
+        private readonly string newPosition;
 
-        public EditEmployeeSalaryDataDelegate(int employeeID, int newSalary) : base("PotionShop.EditEmployeeSalary")
+        public EditEmployeePositionDataDelegate(int employeeID, string newPosition) : base("PotionShop.EditEmployeePosition")
         {
             this.employeeID = employeeID;
-            this.newSalary = newSalary;
+            this.newPosition = newPosition;
         }
 
         public override void PrepareCommand(Command command)
@@ -23,7 +23,7 @@ namespace PotionShopDatabase.DataDelegates
             base.PrepareCommand(command);
 
             command.Parameters.AddWithValue("@EmployeeID", employeeID);
-            command.Parameters.AddWithValue("@NewSalary", newSalary);
+            command.Parameters.AddWithValue("@NewPosition", newPosition);
         }
 
         public override bool Translate(Command command)

@@ -22,6 +22,15 @@ namespace PotionShopDatabase
             return executor.ExecuteReader(new GetAllItemsDataDelegate());
         }
 
+        public bool EditItemPrice(int ItemID, decimal newPrice)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(ItemID));
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(newPrice));
+
+            var d = new EditItemPriceDataDelegate(ItemID, newPrice);
+            return executor.ExecuteNonQuery(d);
+        }
+
         /*
         public Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID)
         {

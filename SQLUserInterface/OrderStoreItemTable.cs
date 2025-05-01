@@ -13,6 +13,7 @@ namespace SQLUserInterface
 {
     public partial class OrderStoreItemTable : Form
     {
+        private DataTable dataTable = new DataTable();
         public OrderStoreItemTable()
         {
             InitializeComponent();
@@ -21,7 +22,7 @@ namespace SQLUserInterface
 
         public void ReadOrderStoreItems()
         {
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
 
             dataTable.Columns.Add("OrderID");
             dataTable.Columns.Add("StoreItemID");

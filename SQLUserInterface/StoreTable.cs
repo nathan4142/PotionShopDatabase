@@ -6,6 +6,7 @@ namespace SQLUserInterface
 {
     public partial class StoreTable : Form
     {
+        private DataTable dataTable = new DataTable();
         public StoreTable()
         {
             InitializeComponent();
@@ -18,7 +19,7 @@ namespace SQLUserInterface
         private void ReadStores()
         {
             //Creates table with the necessary rows
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
 
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("Address");
@@ -32,6 +33,7 @@ namespace SQLUserInterface
             //For each of the stores in stores, we add it to the dataTable
             foreach (var store in stores)
             {
+                
                 var row = dataTable.NewRow();
 
                 row["StoreID"] = store.StoreID;

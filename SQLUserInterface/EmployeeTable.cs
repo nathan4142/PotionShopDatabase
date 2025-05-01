@@ -13,6 +13,7 @@ namespace SQLUserInterface
 {
     public partial class EmployeeTable : Form
     {
+        private DataTable dataTable = new DataTable();
         public EmployeeTable()
         {
             InitializeComponent();
@@ -22,7 +23,7 @@ namespace SQLUserInterface
         private void ReadEmployees()
         {
             //Creates table with the necessary rows
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
 
             dataTable.Columns.Add("EmployeeID");
             dataTable.Columns.Add("StoreID");
@@ -70,16 +71,16 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if(Int32.Parse(employeeIDInput) > 500)
+            else if (Int32.Parse(employeeIDInput) > 500)
             {
                 MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-                //Gets the new hours from the user
-                string newHoursInput = Microsoft.VisualBasic.Interaction.InputBox(
-                "Enter the new hours for the employee (Format HH:MM-HH:MM):",
-                "Edit Employee Hours",
-                "");
+            //Gets the new hours from the user
+            string newHoursInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the new hours for the employee (Format HH:MM-HH:MM):",
+            "Edit Employee Hours",
+            "");
             if (!System.Text.RegularExpressions.Regex.IsMatch(newHoursInput, @"^\d{2}:\d{2}-\d{2}:\d{2}$"))
             {
                 MessageBox.Show("Invalid hours format. Please use the format ##:##-##:##.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -135,7 +136,36 @@ namespace SQLUserInterface
 
         private void ux_EditEmployeePosition_Click(object sender, EventArgs e)
         {
+            //Gets the employeeID from the user
+            string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the EmployeeID of the employee whose Position you want to edit:",
+            "Edit Employee Position",
+            "");
+            if (string.IsNullOrWhiteSpace(employeeIDInput))
+            {
+                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(employeeIDInput) > 500)
+            {
+                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Gets the new Position from the user
+            string newPositionInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the new Position for the employee:",
+            "Edit Employee Position",
+            "");
 
+            string employeeID = employeeIDInput;
+            string updatedPosition = newPositionInput;
+
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            bool success = repo.EditEmployeePosition(Int32.Parse(employeeID), updatedPosition);
+            if (success)
+            {
+                ReadEmployees();
+            }
         }
 
         private void ux_EditEmployeeSalary_Click(object sender, EventArgs e)
@@ -155,25 +185,46 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //Gets the new hours from the user
+            //Gets the new Salary from the user
             string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
-<<<<<<< HEAD
             "Enter the new Salary for the employee:",
-=======
-            "Enter the new salary for the employee:",
->>>>>>> 614a7a03e5719080fc9af8698fe54a896bfccc14
             "Edit Employee Salary",
             "");
 
             string employeeID = employeeIDInput;
             string updatedSalary = newSalaryInput;
 
-<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
-=======
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
->>>>>>> 614a7a03e5719080fc9af8698fe54a896bfccc14
             bool success = repo.EditEmployeeSalary(Int32.Parse(employeeID), Int32.Parse(updatedSalary));
+            if (success)
+            {
+                ReadEmployees();
+            }
+        }
+
+        private void ux_DeleteEmployee_Click(object sender, EventArgs e)
+        {
+            //Gets the employeeID from the user
+            string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the EmployeeID of the employee whose you want to delete:",
+            "Delete Employee",
+            "");
+            if (string.IsNullOrWhiteSpace(employeeIDInput))
+            {
+                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(employeeIDInput) > 500)
+            {
+                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string employeeID = employeeIDInput;
+
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            bool success = repo.DeleteEmployee(Int32.Parse(employeeID));
+
             if (success)
             {
                 ReadEmployees();

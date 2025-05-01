@@ -11,8 +11,10 @@ using System.Windows.Forms;
 
 namespace SQLUserInterface
 {
+    
     public partial class ItemTable : Form
     {
+        private DataTable dataTable = new DataTable();
         public ItemTable()
         {
             InitializeComponent();
@@ -21,7 +23,7 @@ namespace SQLUserInterface
 
         public void ReadItems()
         {
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
 
             dataTable.Columns.Add("ItemID");
             dataTable.Columns.Add("PotionTypeID");
@@ -47,5 +49,39 @@ namespace SQLUserInterface
 
             this.ux_ItemTable.DataSource = dataTable;
         }
+
+        private void ux_EditItemPrice_Click(object sender, EventArgs e)
+        {
+			//Gets the employeeID from the user
+			string ItemIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+			"Enter the ItemID of the item whose price you want to edit:",
+			"Edit Item Price",
+			"");
+			if (string.IsNullOrWhiteSpace(ItemIDInput))
+			{
+				MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			else if (Int32.Parse(ItemIDInput) > 500)
+			{
+				MessageBox.Show("ItemID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+				return;
+			}
+			//Gets the new Salary from the user
+			string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
+			"Enter the new Price for the Item:",
+			"Edit Item Price",
+			"");
+
+			string itemID = ItemIDInput;
+			string updatedPrice = newSalaryInput;
+
+			var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+			bool success = repo.EditItemPrice(Int32.Parse(itemID), Decimal.Parse(updatedPrice));
+			if (success)
+			{
+				ReadItems();
+			}
+		}
     }
 }
