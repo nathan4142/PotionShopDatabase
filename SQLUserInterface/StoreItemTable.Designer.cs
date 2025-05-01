@@ -65,6 +65,7 @@
             ux_CreateStoreItem.TabIndex = 2;
             ux_CreateStoreItem.Text = "Add Store Item";
             ux_CreateStoreItem.UseVisualStyleBackColor = true;
+            ux_CreateStoreItem.Click += ux_AddStoreItem_Click;
             // 
             // ux_EditStoreItemQuantity
             // 
