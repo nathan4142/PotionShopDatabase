@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace PotionShopDatabase.DataDelegates
 {
+<<<<<<< HEAD
     internal class EditEmployeeSalaryDataDelegate : NonQueryDataDelegate<bool>
+=======
+    internal class EditEmployeeSalaryDataDelegate
+        : NonQueryDataDelegate<bool>
+>>>>>>> 614a7a03e5719080fc9af8698fe54a896bfccc14
     {
         private readonly int employeeID;
         private readonly int newSalary;

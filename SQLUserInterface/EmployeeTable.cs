@@ -157,14 +157,22 @@ namespace SQLUserInterface
             }
             //Gets the new hours from the user
             string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
+<<<<<<< HEAD
             "Enter the new Salary for the employee:",
+=======
+            "Enter the new salary for the employee:",
+>>>>>>> 614a7a03e5719080fc9af8698fe54a896bfccc14
             "Edit Employee Salary",
             "");
 
             string employeeID = employeeIDInput;
             string updatedSalary = newSalaryInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+>>>>>>> 614a7a03e5719080fc9af8698fe54a896bfccc14
             bool success = repo.EditEmployeeSalary(Int32.Parse(employeeID), Int32.Parse(updatedSalary));
             if (success)
             {
