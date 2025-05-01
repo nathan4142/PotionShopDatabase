@@ -29,7 +29,7 @@ namespace SQLUserInterface
             table.Columns.Add("Quantity");
             table.Columns.Add("UnitListPrice");
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             var storeItems = repo.GetAllStoreItems();
 
@@ -75,7 +75,7 @@ namespace SQLUserInterface
             string StoreItemID = StoreItemIDInput;
             string updatedQuantity = newQuantityInput;
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             bool success = repo.EditStoreItemQuantity(Int32.Parse(StoreItemID), Int32.Parse(updatedQuantity));
             if (success)
             {
@@ -109,7 +109,7 @@ namespace SQLUserInterface
             string StoreItemID = StoreItemIDInput;
             string updatedULP = newULPInput;
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             bool success = repo.EditStoreItemUnitListPrice(Int32.Parse(StoreItemID), Decimal.Parse(updatedULP));
             if (success)
             {
