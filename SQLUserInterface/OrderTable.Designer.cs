@@ -30,6 +30,7 @@
         {
             ux_OrderLabel = new Label();
             ux_OrderTable = new DataGridView();
+            ux_AddOrder = new Button();
             ((System.ComponentModel.ISupportInitialize)ux_OrderTable).BeginInit();
             SuspendLayout();
             // 
@@ -54,11 +55,22 @@
             ux_OrderTable.Size = new Size(931, 445);
             ux_OrderTable.TabIndex = 1;
             // 
+            // ux_AddOrder
+            // 
+            ux_AddOrder.Location = new Point(491, 130);
+            ux_AddOrder.Name = "ux_AddOrder";
+            ux_AddOrder.Size = new Size(75, 23);
+            ux_AddOrder.TabIndex = 2;
+            ux_AddOrder.Text = "Add Order";
+            ux_AddOrder.UseVisualStyleBackColor = true;
+            ux_AddOrder.Click += ux_AddOrder_Click;
+            // 
             // OrderTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1090, 668);
+            Controls.Add(ux_AddOrder);
             Controls.Add(ux_OrderTable);
             Controls.Add(ux_OrderLabel);
             Name = "OrderTable";
@@ -71,5 +83,6 @@
 
         private Label ux_OrderLabel;
         private DataGridView ux_OrderTable;
+        private Button ux_AddOrder;
     }
 }

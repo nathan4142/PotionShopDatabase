@@ -37,7 +37,9 @@ namespace SQLUserInterface
 
         }
 
-        
-        
+        private void ux_AddOrder_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
