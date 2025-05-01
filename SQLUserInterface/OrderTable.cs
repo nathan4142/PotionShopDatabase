@@ -20,7 +20,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("OrderID");
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("OrderedOn");
-            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
 
             foreach (var order in orders)
@@ -53,7 +53,7 @@ namespace SQLUserInterface
                 else
                 {
                     DateTime orderedOn = DateTime.Now;
-                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
                     repo.CreateOrder(storeID, orderedOn);
                     ReadOrders();
                 }

@@ -38,8 +38,12 @@
             ux_getMonthlyRankButton = new Button();
             ux_potionTypeComboBox = new ComboBox();
             ux_getPotionCountButton = new Button();
+            ux_storeIDPicker = new NumericUpDown();
+            label3 = new Label();
+            ux_getInventoryValueButton = new Button();
             ((System.ComponentModel.ISupportInitialize)ux_StoreTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ux_numGoldStars).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ux_storeIDPicker).BeginInit();
             SuspendLayout();
             // 
             // ux_StoreTable
@@ -139,11 +143,40 @@
             ux_getPotionCountButton.UseVisualStyleBackColor = true;
             ux_getPotionCountButton.Click += ux_getPotionCountButtonClick;
             // 
+            // ux_storeIDPicker
+            // 
+            ux_storeIDPicker.Location = new Point(1076, 87);
+            ux_storeIDPicker.Name = "ux_storeIDPicker";
+            ux_storeIDPicker.Size = new Size(53, 23);
+            ux_storeIDPicker.TabIndex = 15;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(1135, 92);
+            label3.Name = "label3";
+            label3.Size = new Size(45, 15);
+            label3.TabIndex = 16;
+            label3.Text = "StoreID";
+            // 
+            // ux_getInventoryValueButton
+            // 
+            ux_getInventoryValueButton.Location = new Point(872, 84);
+            ux_getInventoryValueButton.Name = "ux_getInventoryValueButton";
+            ux_getInventoryValueButton.Size = new Size(198, 23);
+            ux_getInventoryValueButton.TabIndex = 17;
+            ux_getInventoryValueButton.Text = "Get Inventory Value of Store";
+            ux_getInventoryValueButton.UseVisualStyleBackColor = true;
+            ux_getInventoryValueButton.Click += ux_getInventoryValueButtonClick;
+            // 
             // AggregateTables
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1192, 669);
+            Controls.Add(ux_getInventoryValueButton);
+            Controls.Add(label3);
+            Controls.Add(ux_storeIDPicker);
             Controls.Add(ux_getPotionCountButton);
             Controls.Add(ux_potionTypeComboBox);
             Controls.Add(ux_getMonthlyRankButton);
@@ -158,6 +191,7 @@
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)ux_StoreTable).EndInit();
             ((System.ComponentModel.ISupportInitialize)ux_numGoldStars).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ux_storeIDPicker).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -173,5 +207,8 @@
         private Button ux_getMonthlyRankButton;
         private ComboBox ux_potionTypeComboBox;
         private Button ux_getPotionCountButton;
+        private NumericUpDown ux_storeIDPicker;
+        private Label label3;
+        private Button ux_getInventoryValueButton;
     }
 }

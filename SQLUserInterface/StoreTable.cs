@@ -27,7 +27,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
 
             //Goes to the repository which is where we will call the methods from
-            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             //Calls the get all stores method and stores it in the stores variable
             var stores = repo.GetAllStores();
             //For each of the stores in stores, we add it to the dataTable
