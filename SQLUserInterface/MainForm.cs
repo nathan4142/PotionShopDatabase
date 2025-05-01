@@ -19,7 +19,6 @@ namespace SQLUserInterface
             ux_tableComboBox.Items.Add("Store");
             ux_tableComboBox.Items.Add("Employee");
             ux_tableComboBox.Items.Add("Order");
-            ux_tableComboBox.Items.Add("OrderItem");
             ux_tableComboBox.Items.Add("StoreItem");
             ux_tableComboBox.Items.Add("Item");
             ux_tableComboBox.Items.Add("OrderStoreItem");
@@ -36,7 +35,7 @@ namespace SQLUserInterface
 
         private void ux_openTableButton_Click(object sender, EventArgs e)
         {
-            string selectedTable = ux_tableComboBox.SelectedItem.ToString();
+            string selectedTable = ux_tableComboBox.SelectedItem!.ToString()!;
 
             if (selectedTable == "Store")
             {
