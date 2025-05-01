@@ -102,6 +102,11 @@ namespace SQLUserInterface
 
         private void ux_EditEmployeeGoldStars_Click(object sender, EventArgs e)
         {
+            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
+
             //Gets the employeeID from the user
             string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
             "Enter the EmployeeID of the employee whose gold stars you want to edit:",
@@ -112,9 +117,9 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(employeeIDInput) > 500)
+            else if (Int32.Parse(employeeIDInput) > Int32.Parse((string)idValue))
             {
-                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"EmployeeID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Gets the new hours from the user
@@ -136,6 +141,10 @@ namespace SQLUserInterface
 
         private void ux_EditEmployeePosition_Click(object sender, EventArgs e)
         {
+            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
             //Gets the employeeID from the user
             string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
             "Enter the EmployeeID of the employee whose Position you want to edit:",
@@ -146,9 +155,9 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(employeeIDInput) > 500)
+            else if (Int32.Parse(employeeIDInput) > Int32.Parse((string)idValue))
             {
-                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"EmployeeID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Gets the new Position from the user
@@ -170,6 +179,10 @@ namespace SQLUserInterface
 
         private void ux_EditEmployeeSalary_Click(object sender, EventArgs e)
         {
+            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
             //Gets the employeeID from the user
             string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
             "Enter the EmployeeID of the employee whose salary you want to edit:",
@@ -180,9 +193,9 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(employeeIDInput) > 500)
+            else if (Int32.Parse(employeeIDInput) > Int32.Parse((string)idValue))
             {
-                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"EmployeeID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Gets the new Salary from the user
@@ -197,7 +210,7 @@ namespace SQLUserInterface
             }
             foreach (char c in newSalaryInput)
             {
-                if(c < '0' || c > '9')
+                if (c < '0' || c > '9')
                 {
                     MessageBox.Show("New Salary must contain only integers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -217,6 +230,10 @@ namespace SQLUserInterface
 
         private void ux_DeleteEmployee_Click(object sender, EventArgs e)
         {
+            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
             //Gets the employeeID from the user
             string employeeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
             "Enter the EmployeeID of the employee whose you want to delete:",
@@ -227,9 +244,9 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(employeeIDInput) > 500)
+            else if (Int32.Parse(employeeIDInput) > Int32.Parse((string)idValue))
             {
-                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"EmployeeID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -347,8 +364,18 @@ namespace SQLUserInterface
             repo.CreateEmployee(Int32.Parse(storeID), firstName, lastName, employeeHours, Int32.Parse(salary), position, 0);
 
 
-                ReadEmployees();
-            
+            ReadEmployees();
+
+        }
+
+        private void ux_Test_Click(object sender, EventArgs e)
+        {
+            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
+            MessageBox.Show((string?)idValue);
+
         }
     }
 }
