@@ -38,9 +38,9 @@
             // 
             ux_OrderLabel.AutoSize = true;
             ux_OrderLabel.Font = new Font("Segoe UI", 14F);
-            ux_OrderLabel.Location = new Point(454, 92);
+            ux_OrderLabel.Location = new Point(519, 123);
             ux_OrderLabel.Name = "ux_OrderLabel";
-            ux_OrderLabel.Size = new Size(151, 25);
+            ux_OrderLabel.Size = new Size(190, 32);
             ux_OrderLabel.TabIndex = 0;
             ux_OrderLabel.Text = "List of All Orders";
             ux_OrderLabel.TextAlign = ContentAlignment.TopCenter;
@@ -50,16 +50,19 @@
             ux_OrderTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ux_OrderTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ux_OrderTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ux_OrderTable.Location = new Point(77, 171);
+            ux_OrderTable.Location = new Point(88, 228);
+            ux_OrderTable.Margin = new Padding(3, 4, 3, 4);
             ux_OrderTable.Name = "ux_OrderTable";
-            ux_OrderTable.Size = new Size(931, 445);
+            ux_OrderTable.RowHeadersWidth = 51;
+            ux_OrderTable.Size = new Size(1064, 593);
             ux_OrderTable.TabIndex = 1;
             // 
             // ux_AddOrder
             // 
-            ux_AddOrder.Location = new Point(491, 130);
+            ux_AddOrder.Location = new Point(545, 173);
+            ux_AddOrder.Margin = new Padding(3, 4, 3, 4);
             ux_AddOrder.Name = "ux_AddOrder";
-            ux_AddOrder.Size = new Size(75, 23);
+            ux_AddOrder.Size = new Size(128, 31);
             ux_AddOrder.TabIndex = 2;
             ux_AddOrder.Text = "Add Order";
             ux_AddOrder.UseVisualStyleBackColor = true;
@@ -67,12 +70,13 @@
             // 
             // OrderTable
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1090, 668);
+            ClientSize = new Size(1246, 891);
             Controls.Add(ux_AddOrder);
             Controls.Add(ux_OrderTable);
             Controls.Add(ux_OrderLabel);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "OrderTable";
             ((System.ComponentModel.ISupportInitialize)ux_OrderTable).EndInit();
             ResumeLayout(false);
