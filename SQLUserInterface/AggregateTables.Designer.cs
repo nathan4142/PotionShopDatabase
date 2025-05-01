@@ -36,6 +36,8 @@
             label1 = new Label();
             ux_secondDateTimePicker = new DateTimePicker();
             ux_getMonthlyRankButton = new Button();
+            ux_potionTypeComboBox = new ComboBox();
+            ux_getPotionCountButton = new Button();
             ((System.ComponentModel.ISupportInitialize)ux_StoreTable).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ux_numGoldStars).BeginInit();
             SuspendLayout();
@@ -52,7 +54,7 @@
             ux_StoreTable.RowHeadersVisible = false;
             ux_StoreTable.RowHeadersWidth = 51;
             ux_StoreTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ux_StoreTable.Size = new Size(1150, 473);
+            ux_StoreTable.Size = new Size(1170, 473);
             ux_StoreTable.TabIndex = 4;
             // 
             // ux_findCoolestStores
@@ -119,11 +121,31 @@
             ux_getMonthlyRankButton.UseVisualStyleBackColor = true;
             ux_getMonthlyRankButton.Click += ux_getMonthlyRankButton_Click;
             // 
+            // ux_potionTypeComboBox
+            // 
+            ux_potionTypeComboBox.FormattingEnabled = true;
+            ux_potionTypeComboBox.Location = new Point(694, 12);
+            ux_potionTypeComboBox.Name = "ux_potionTypeComboBox";
+            ux_potionTypeComboBox.Size = new Size(172, 23);
+            ux_potionTypeComboBox.TabIndex = 13;
+            // 
+            // ux_getPotionCountButton
+            // 
+            ux_getPotionCountButton.Location = new Point(872, 12);
+            ux_getPotionCountButton.Name = "ux_getPotionCountButton";
+            ux_getPotionCountButton.Size = new Size(308, 23);
+            ux_getPotionCountButton.TabIndex = 14;
+            ux_getPotionCountButton.Text = "Get Number Of Potions in Each Store By Selected Type";
+            ux_getPotionCountButton.UseVisualStyleBackColor = true;
+            ux_getPotionCountButton.Click += ux_getPotionCountButtonClick;
+            // 
             // AggregateTables
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1192, 669);
+            Controls.Add(ux_getPotionCountButton);
+            Controls.Add(ux_potionTypeComboBox);
             Controls.Add(ux_getMonthlyRankButton);
             Controls.Add(ux_secondDateTimePicker);
             Controls.Add(label1);
@@ -149,5 +171,7 @@
         private Label label1;
         private DateTimePicker ux_secondDateTimePicker;
         private Button ux_getMonthlyRankButton;
+        private ComboBox ux_potionTypeComboBox;
+        private Button ux_getPotionCountButton;
     }
 }

@@ -5,5 +5,5 @@ AS
 Begin
 Update PotionShop.StoreItem
 Set UnitListPrice = @NewUnitListPrice
-Where StoreItemID = @NewStoreItemID
+Where StoreItemID = @StoreItemID
 End

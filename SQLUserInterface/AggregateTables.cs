@@ -1,4 +1,5 @@
 ﻿using PotionShopDatabase;
+using PotionShopDatabase.Models;
 using PotionShopDatabase.Repositories;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,10 @@ namespace SQLUserInterface
         public AggregateTables()
         {
             InitializeComponent();
+
+            ux_potionTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            ux_potionTypeComboBox.DataSource = Enum.GetValues(typeof(PotionType));
+            ux_potionTypeComboBox.SelectedIndex = 0;
         }
 
         private void ux_findCoolestStores_Click(object sender, EventArgs e)
@@ -85,6 +90,34 @@ namespace SQLUserInterface
                 dataTable.Rows.Add(row);
             }
             ux_StoreTable.DataSource = dataTable;
+        }
+
+        private void ux_getPotionCountButtonClick(object sender, EventArgs e)
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("StoreID");
+            dataTable.Columns.Add("Address");
+            dataTable.Columns.Add("StateCode");
+            dataTable.Columns.Add("ZipCode");
+            dataTable.Columns.Add("PotionCount");
+
+            var repo = new SqlNumberOfPotionsByTypeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var selectedType = (int)ux_potionTypeComboBox.SelectedItem!;
+            var results = repo.GetNumberOfPotionsByType(selectedType);
+
+            foreach ((Store store, int count) in results)
+            {
+                var row = dataTable.NewRow();
+                row["StoreID"] = store.StoreID;
+                row["Address"] = store.Address;
+                row["StateCode"] = store.StateCode;
+                row["ZipCode"] = store.ZipCode;
+                row["PotionCount"] = count;
+                dataTable.Rows.Add(row);
+            }
+
+            ux_StoreTable.DataSource = dataTable;
+
         }
 
     }
