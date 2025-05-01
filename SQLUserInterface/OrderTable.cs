@@ -53,7 +53,7 @@ namespace SQLUserInterface
                 else
                 {
                     DateTime orderedOn = DateTime.Now;
-                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
                     repo.CreateOrder(storeID, orderedOn);
                     ReadOrders();
                 }
