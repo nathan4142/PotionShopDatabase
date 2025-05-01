@@ -56,6 +56,7 @@
             ux_AddItem.TabIndex = 1;
             ux_AddItem.Text = "Add Item";
             ux_AddItem.UseVisualStyleBackColor = true;
+            ux_AddItem.Click += ux_AddItem_Click;
             // 
             // ux_EditItemPrice
             // 

@@ -13,9 +13,13 @@ namespace PotionShopDatabase
     {
         private readonly SqlCommandExecutor executor = new(connectionString);
 
-        public Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID)
+        public Item CreateItem(string name, decimal price, int potionTypeID)
         {
-            throw new NotImplementedException();
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(name));
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(price));
+
+            var d = new CreateItemDataDelegate(name, price, potionTypeID);
+            return executor.ExecuteNonQuery(d);
         }
         public IReadOnlyList<Item> GetAllItems()
         {
@@ -31,29 +35,6 @@ namespace PotionShopDatabase
             return executor.ExecuteNonQuery(d);
         }
 
-        /*
-        public Item CreateItem(string name, string itemDescription, List<string> ingredients, decimal price, PotionType potionTypeID)
-        {
-        //converts ingredients to a string of ingredients that can be tested
-        StringBuilder sb = new();
-        foreach(string s in ingredients)
-        {
-            sb.Append(s);
-            sb.Append(", ");
-        }
-        string ingredientstring = sb.ToString();
-
-        ArgumentException.ThrowIfNullOrWhiteSpace(name);
-        ArgumentException.ThrowIfNullOrWhiteSpace(itemDescription);
-        ArgumentException.ThrowIfNullOrWhiteSpace(ingredientstring);
-        ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(price));
-        ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(potionTypeID));
-
-        var d = new CreateItemDataDelegate(name, itemDescription, ingredients, price, potionTypeID);
-        return executor.ExecuteNonQuery(d);
-        }
-
-        */
 
 
     }

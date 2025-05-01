@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SQLUserInterface
 {
-    
+
     public partial class ItemTable : Form
     {
         private DataTable dataTable = new DataTable();
@@ -52,36 +52,82 @@ namespace SQLUserInterface
 
         private void ux_EditItemPrice_Click(object sender, EventArgs e)
         {
-			//Gets the employeeID from the user
-			string ItemIDInput = Microsoft.VisualBasic.Interaction.InputBox(
-			"Enter the ItemID of the item whose price you want to edit:",
-			"Edit Item Price",
-			"");
-			if (string.IsNullOrWhiteSpace(ItemIDInput))
-			{
-				MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			else if (Int32.Parse(ItemIDInput) > 500)
-			{
-				MessageBox.Show("ItemID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-				return;
-			}
-			//Gets the new Salary from the user
-			string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
-			"Enter the new Price for the Item:",
-			"Edit Item Price",
-			"");
+            //Gets the employeeID from the user
+            string ItemIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the ItemID of the item whose price you want to edit:",
+            "Edit Item Price",
+            "");
+            if (string.IsNullOrWhiteSpace(ItemIDInput))
+            {
+                MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(ItemIDInput) > 500)
+            {
+                MessageBox.Show("ItemID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //Gets the new Salary from the user
+            string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the new Price for the Item:",
+            "Edit Item Price",
+            "");
 
-			string itemID = ItemIDInput;
-			string updatedPrice = newSalaryInput;
+            string itemID = ItemIDInput;
+            string updatedPrice = newSalaryInput;
 
-			var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
-			bool success = repo.EditItemPrice(Int32.Parse(itemID), Decimal.Parse(updatedPrice));
-			if (success)
-			{
-				ReadItems();
-			}
-		}
+            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            bool success = repo.EditItemPrice(Int32.Parse(itemID), Decimal.Parse(updatedPrice));
+            if (success)
+            {
+                ReadItems();
+            }
+        }
+
+        private void ux_AddItem_Click(object sender, EventArgs e)
+        {
+            //Gets the potion name
+            string potionNameInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the name of the new item:",
+            "Add Item",
+            "");
+            if (string.IsNullOrWhiteSpace(potionNameInput))
+            {
+                
+            }
+            //Gets the potion price
+            string potionPriceInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the price of the new item:",
+            "Add Item",
+            "");
+            if (!Decimal.TryParse(potionPriceInput, out decimal Price))
+            {
+                MessageBox.Show("PotionPrice has to be a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string potionTypeInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the potionType of the new item (select number):\nAttack = 1,\nDefence = 2,\nHealth = 3,\nEvil = 4,\nExplosion = 5,\nCharm = 6",
+            "Add Item",
+            "");
+            if (int.TryParse(potionTypeInput, out int potionType))
+            {
+                if (potionType < 1 || potionType > 6)
+                {
+                    MessageBox.Show("potionType must be between 1 - 6");
+                    return;
+                }
+                else
+                {
+                    var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+                    repo.CreateItem(potionNameInput, Convert.ToDecimal(potionPriceInput), Convert.ToInt32(potionType));
+                    ReadItems();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Invalid StoreID. Please enter a valid number.");
+            }
+        }
     }
 }

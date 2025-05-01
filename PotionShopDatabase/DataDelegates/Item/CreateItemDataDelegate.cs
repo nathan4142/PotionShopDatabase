@@ -9,20 +9,9 @@ using System.Threading.Tasks;
 
 namespace PotionShopDatabase.DataDelegates
 {
-    internal class CreateItemDataDelegate : NonQueryDataDelegate<Item>
+    internal class CreateItemDataDelegate(string name, decimal price, int potionType)
+        : NonQueryDataDelegate<Item>("PotionShop.CreateItem")
     {
-
-        private readonly string name;
-        private readonly decimal price;
-        private readonly PotionType potionType;
-
-        public CreateItemDataDelegate(string name, decimal price, PotionType potionType)
-            : base("PotionShop.CreateItem")
-        {
-            this.name = name;
-            this.price = price;
-            this.potionType = potionType;
-        }
 
         public override void PrepareCommand(Command command)
         {
@@ -30,20 +19,15 @@ namespace PotionShopDatabase.DataDelegates
 
             command.Parameters.AddWithValue("Name", name);
             command.Parameters.AddWithValue("Price", price);
-            command.Parameters.AddWithValue("PotionTypeID", (int)potionType);
+            command.Parameters.AddWithValue("PotionTypeID", potionType);
 
             var p = command.Parameters.Add("ItemID", SqlDbType.Int);
             p.Direction = ParameterDirection.Output;
-            
         }
 
         public override Item Translate(Command command)
         {
-            return new Item(
-                command.GetParameterValue<int>("ItemID"),
-                name,
-                price, 
-                potionType);
+            return new Item(command.GetParameterValue<int>("ItemID"), name, price, (PotionType)potionType);
         }
     }
 }
