@@ -1,6 +1,10 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
+<<<<<<< HEAD
    [string] $Database = "zalatta"
+=======
+   [string] $Database = "danielcortez"
+>>>>>>> 5cd53c1073177a776e66d456a5504670b072ceb0
 )
 
 # This script requires the SQL Server module for PowerShell.
@@ -60,6 +64,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetCoolestStores.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetMonthlyRankOfStoresByProfit.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetNumberOfPotionsByType.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetStoreInventoryValueByStore.sql"
 #StoreItem Procedures
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.GetAllStoreItems.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.CreateStoreItem.sql"

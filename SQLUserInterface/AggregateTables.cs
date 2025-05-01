@@ -22,6 +22,12 @@ namespace SQLUserInterface
             ux_potionTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             ux_potionTypeComboBox.DataSource = Enum.GetValues(typeof(PotionType));
             ux_potionTypeComboBox.SelectedIndex = 0;
+
+            ux_storeIDPicker.Minimum = 1;
+            ux_storeIDPicker.Maximum = 25;
+            ux_storeIDPicker.Value = 1;
+            ux_storeIDPicker.DecimalPlaces = 0;
+
         }
 
         private void ux_findCoolestStores_Click(object sender, EventArgs e)
@@ -34,7 +40,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
             dataTable.Columns.Add("TotalGoldStars");
 
-            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             int goldStars = (int)ux_numGoldStars.Value;
             var coolestStores = repo.GetCoolestStores(goldStars);
 
@@ -69,7 +75,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("Sales");
             dataTable.Columns.Add("Rank");
 
-            var repo = new SqlMonthlyRankOfStoresRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlMonthlyRankOfStoresRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             DateTime firstDate = ux_firstDateTimePicker.Value;
             DateTime secondDate = ux_secondDateTimePicker.Value;
             var rankedStores = repo.GetMonthlyRankOfStores(firstDate, secondDate);
@@ -101,7 +107,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
             dataTable.Columns.Add("PotionCount");
 
-            var repo = new SqlNumberOfPotionsByTypeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlNumberOfPotionsByTypeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
             var selectedType = (int)ux_potionTypeComboBox.SelectedItem!;
             var results = repo.GetNumberOfPotionsByType(selectedType);
 
@@ -118,6 +124,39 @@ namespace SQLUserInterface
 
             ux_StoreTable.DataSource = dataTable;
 
+        }
+
+        private void ux_getInventoryValueButtonClick(object sender, EventArgs e)
+        {
+            var dataTable = new DataTable();
+            dataTable.Columns.Add("StoreID");
+            dataTable.Columns.Add("Address");
+            dataTable.Columns.Add("StateCode");
+            dataTable.Columns.Add("ZipCode");
+            dataTable.Columns.Add("InventoryValue", typeof(decimal));
+
+            var repo = new SqlInventoryValueRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var selectedID = (int)ux_storeIDPicker.Value;
+            var results = repo.GetStoreInventoryValueByStore(selectedID);
+
+            foreach ((Store store, decimal inventory) in results)
+            {
+                var row = dataTable.NewRow();
+                row["StoreID"] = store.StoreID;
+                row["Address"] = store.Address;
+                row["StateCode"] = store.StateCode;
+                row["ZipCode"] = store.ZipCode;
+                row["InventoryValue"] = inventory;
+                dataTable.Rows.Add(row);
+            }
+
+            ux_StoreTable.DataSource = dataTable;
+
+            var col = ux_StoreTable.Columns["InventoryValue"];
+            if (col != null)
+            {
+                col.DefaultCellStyle.Format = "C2";
+            }
         }
 
     }
