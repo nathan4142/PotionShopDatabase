@@ -33,7 +33,7 @@
             ux_CreateStoreItem = new Button();
             ux_EditStoreItemQuantity = new Button();
             ux_EditStoreItemUnitListPrice = new Button();
-            button1 = new Button();
+            ux_DeleteStoreItem = new Button();
             ((System.ComponentModel.ISupportInitialize)ux_StoreItemsTable).BeginInit();
             SuspendLayout();
             // 
@@ -65,6 +65,7 @@
             ux_CreateStoreItem.TabIndex = 2;
             ux_CreateStoreItem.Text = "Add Store Item";
             ux_CreateStoreItem.UseVisualStyleBackColor = true;
+            ux_CreateStoreItem.Click += ux_CreateStoreItem_Click;
             // 
             // ux_EditStoreItemQuantity
             // 
@@ -86,21 +87,22 @@
             ux_EditStoreItemUnitListPrice.UseVisualStyleBackColor = true;
             ux_EditStoreItemUnitListPrice.Click += ux_EditStoreItemUnitListPrice_Click;
             // 
-            // button1
+            // ux_DeleteStoreItem
             // 
-            button1.Location = new Point(754, 71);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Delete Row";
-            button1.UseVisualStyleBackColor = true;
+            ux_DeleteStoreItem.Location = new Point(754, 71);
+            ux_DeleteStoreItem.Name = "ux_DeleteStoreItem";
+            ux_DeleteStoreItem.Size = new Size(75, 23);
+            ux_DeleteStoreItem.TabIndex = 5;
+            ux_DeleteStoreItem.Text = "Delete Row";
+            ux_DeleteStoreItem.UseVisualStyleBackColor = true;
+            ux_DeleteStoreItem.Click += ux_DeleteStoreItem_Click;
             // 
             // StoreItemTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 550);
-            Controls.Add(button1);
+            Controls.Add(ux_DeleteStoreItem);
             Controls.Add(ux_EditStoreItemUnitListPrice);
             Controls.Add(ux_EditStoreItemQuantity);
             Controls.Add(ux_CreateStoreItem);
@@ -120,6 +122,6 @@
         private Button ux_CreateStoreItem;
         private Button ux_EditStoreItemQuantity;
         private Button ux_EditStoreItemUnitListPrice;
-        private Button button1;
+        private Button ux_DeleteStoreItem;
     }
 }

@@ -35,6 +35,14 @@ namespace PotionShopDatabase
             return executor.ExecuteNonQuery(d);
         }
 
+        public bool DeleteItem(int ItemID)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(ItemID));
+
+            var d = new DeleteItemDataDelegate(ItemID);
+            return executor.ExecuteNonQuery(d);
+        }
+
 
 
     }

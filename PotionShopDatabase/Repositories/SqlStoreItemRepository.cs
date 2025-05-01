@@ -8,15 +8,15 @@ namespace PotionShopDatabase
     {
         private readonly SqlCommandExecutor executor = new(connectionString);
 
-        public StoreItem CreateStoreItem(int storeItemID, int storeID, int quantity, decimal ulp)
+        public StoreItem CreateStoreItem(int itemID, int storeID, int quantity, decimal ulp)
         {
             
-            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(storeItemID));
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(itemID));
             ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(storeID));
             ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(quantity));
             ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(ulp));
 
-            var d = new CreateStoreItemDataDelegate(storeItemID, storeID, quantity, ulp);
+            var d = new CreateStoreItemDataDelegate(itemID, storeID, quantity, ulp);
             return executor.ExecuteNonQuery(d);
         }
 
@@ -40,6 +40,14 @@ namespace PotionShopDatabase
             ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(newULP));
 
             var d = new EditStoreItemUnitListPriceDataDelegate(storeItemID, newULP);
+            return executor.ExecuteNonQuery(d);
+        }
+
+        public bool DeleteStoreItem(int storeItemID)
+        {
+            ArgumentException.ThrowIfNullOrWhiteSpace(Convert.ToString(storeItemID));
+
+            var d = new DeleteStoreItemDataDelegate(storeItemID);
             return executor.ExecuteNonQuery(d);
         }
 

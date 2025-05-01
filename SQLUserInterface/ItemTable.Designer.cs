@@ -78,6 +78,7 @@
             ux_DeleteItem.TabIndex = 3;
             ux_DeleteItem.Text = "Delete Item";
             ux_DeleteItem.UseVisualStyleBackColor = true;
+            ux_DeleteItem.Click += ux_DeleteItem_Click;
             // 
             // ux_ItemTable
             // 

@@ -35,6 +35,13 @@ namespace PotionShopDatabase
         /// <returns>whether the Item was edited</returns>
         public bool EditStoreItemUnitListPrice(int storeItemID, decimal newULP);
 
+        /// <summary>
+        /// delets a store item via store item ID
+        /// </summary>
+        /// <param name="storeItemID">ID of the store item row</param>
+        /// <returns>whether the item was deleted</returns>
+        public bool DeleteStoreItem(int storeItemID);
+
 
         IReadOnlyList<StoreItem> GetAllStoreItems();
 

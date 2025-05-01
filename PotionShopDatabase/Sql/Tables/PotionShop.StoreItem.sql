@@ -14,7 +14,7 @@ BEGIN
 		),
 
 		CONSTRAINT [FK_PotionShop_StoreItem_PotionShop_Item] FOREIGN KEY(ItemID) --Might want to change its name but idk
-		REFERENCES PotionShop.Item(ItemID),
+		REFERENCES PotionShop.Item(ItemID) ON DELETE CASCADE, --If ItemID is delete in the item table, will automatically delete any rows referencing it
 
 		CONSTRAINT [FK_PotionShop_StoreItem_PotionShop_Store] FOREIGN KEY(StoreID)
 		REFERENCES PotionShop.Store(StoreID)

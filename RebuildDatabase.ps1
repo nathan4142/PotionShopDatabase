@@ -1,10 +1,6 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
-<<<<<<< HEAD
    [string] $Database = "zalatta"
-=======
-   [string] $Database = "danielcortez"
->>>>>>> 5cd53c1073177a776e66d456a5504670b072ceb0
 )
 
 # This script requires the SQL Server module for PowerShell.
@@ -61,10 +57,6 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 #Store Procedures
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.CreateStore.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetAllStores.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetCoolestStores.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetMonthlyRankOfStoresByProfit.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetNumberOfPotionsByType.sql"
-Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetStoreInventoryValueByStore.sql"
 #StoreItem Procedures
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.GetAllStoreItems.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.CreateStoreItem.sql"
@@ -82,6 +74,11 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 #OrderStoreItem Procedures
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\OrderStoreItem\PotionShop.GetAllOrderStoreItems.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\OrderStoreItem\PotionShop.CreateOrderStoreItem.sql"
+#Aggregate Procedures
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Aggregates\PotionShop.GetCoolestStores.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Aggregates\PotionShop.GetMonthlyRankOfStoresByProfit.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Aggregates\PotionShop.GetNumberOfPotionsByType.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Aggregates\PotionShop.GetStoreInventoryValueByStore.sql"
 Write-Host "Inserting data..."
 #Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Data\PotionShop.PotionType.sql"
 

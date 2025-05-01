@@ -10,7 +10,9 @@ namespace PotionShopDatabase
     public interface IItemRepository
     {
         Item CreateItem(string name, decimal price, int potionTypeID);
-        public bool EditItemPrice(int ItemID, decimal newPrice);
+        bool EditItemPrice(int ItemID, decimal newPrice);
+        bool DeleteItem(int ItemID);
+
 
         IReadOnlyList<Item> GetAllItems();
     }

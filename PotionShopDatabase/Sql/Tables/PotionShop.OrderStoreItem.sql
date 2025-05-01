@@ -16,7 +16,7 @@ BEGIN
 			REFERENCES PotionShop.[Order](OrderID),
 
 		CONSTRAINT [FK_PotionShop_OrderStoreItem_PotionShop_StoreItem] FOREIGN KEY(StoreItemID)
-			REFERENCES PotionShop.StoreItem(StoreItemID)
+			REFERENCES PotionShop.StoreItem(StoreItemID) ON DELETE CASCADE --If StoreItemID is delete in the storeitem table, will automatically delete any rows referencing it
 
 	);
 END;

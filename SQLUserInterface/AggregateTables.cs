@@ -40,7 +40,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
             dataTable.Columns.Add("TotalGoldStars");
 
-            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var repo = new SqlStoreRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             int goldStars = (int)ux_numGoldStars.Value;
             var coolestStores = repo.GetCoolestStores(goldStars);
 
@@ -75,7 +75,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("Sales");
             dataTable.Columns.Add("Rank");
 
-            var repo = new SqlMonthlyRankOfStoresRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var repo = new SqlMonthlyRankOfStoresRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             DateTime firstDate = ux_firstDateTimePicker.Value;
             DateTime secondDate = ux_secondDateTimePicker.Value;
             var rankedStores = repo.GetMonthlyRankOfStores(firstDate, secondDate);
@@ -107,7 +107,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
             dataTable.Columns.Add("PotionCount");
 
-            var repo = new SqlNumberOfPotionsByTypeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var repo = new SqlNumberOfPotionsByTypeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             var selectedType = (int)ux_potionTypeComboBox.SelectedItem!;
             var results = repo.GetNumberOfPotionsByType(selectedType);
 
@@ -135,7 +135,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ZipCode");
             dataTable.Columns.Add("InventoryValue", typeof(decimal));
 
-            var repo = new SqlInventoryValueRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var repo = new SqlInventoryValueRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             var selectedID = (int)ux_storeIDPicker.Value;
             var results = repo.GetStoreInventoryValueByStore(selectedID);
 

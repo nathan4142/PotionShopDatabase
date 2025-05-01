@@ -52,31 +52,54 @@ namespace SQLUserInterface
 
         private void ux_EditItemPrice_Click(object sender, EventArgs e)
         {
-            //Gets the employeeID from the user
+            int lastRowIndex = ux_ItemTable.AllowUserToAddRows ? ux_ItemTable.Rows.Count - 2 : ux_ItemTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_ItemTable.Rows[lastRowIndex].Cells["ItemID"].Value;
+            //Gets the ItemID from the user
             string ItemIDInput = Microsoft.VisualBasic.Interaction.InputBox(
-            "Enter the ItemID of the item whose price you want to edit:",
+            "Enter the ItemID of the Item whose price you want to edit:",
             "Edit Item Price",
             "");
+
             if (string.IsNullOrWhiteSpace(ItemIDInput))
             {
                 MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(ItemIDInput) > 500)
+            else if (Int32.TryParse(ItemIDInput, out int i))
             {
-                MessageBox.Show("ItemID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ItemID must be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (Int32.Parse(ItemIDInput) > Int32.Parse((string)idValue))
+            {
+                MessageBox.Show($"ItemID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
+
             //Gets the new Salary from the user
-            string newSalaryInput = Microsoft.VisualBasic.Interaction.InputBox(
+            string newPriceInput = Microsoft.VisualBasic.Interaction.InputBox(
             "Enter the new Price for the Item:",
             "Edit Item Price",
             "");
+            if (string.IsNullOrWhiteSpace(newPriceInput))
+            {
+                MessageBox.Show("Price cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Decimal.TryParse(newPriceInput, out decimal value))
+            {
+                MessageBox.Show("Price must be a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
 
             string itemID = ItemIDInput;
-            string updatedPrice = newSalaryInput;
+            string updatedPrice = newPriceInput;
 
-            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             bool success = repo.EditItemPrice(Int32.Parse(itemID), Decimal.Parse(updatedPrice));
             if (success)
             {
@@ -93,16 +116,16 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(potionNameInput))
             {
-                
+                MessageBox.Show("Potion Name cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Gets the potion price
             string potionPriceInput = Microsoft.VisualBasic.Interaction.InputBox(
             "Enter the price of the new item:",
             "Add Item",
             "");
-            if (!Decimal.TryParse(potionPriceInput, out decimal Price))
+            if (!Decimal.TryParse(potionPriceInput, out decimal Price) || Price >= 1000.00m)
             {
-                MessageBox.Show("PotionPrice has to be a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("PotionPrice has to be a number less than 1000.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string potionTypeInput = Microsoft.VisualBasic.Interaction.InputBox(
@@ -118,7 +141,7 @@ namespace SQLUserInterface
                 }
                 else
                 {
-                    var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+                    var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
                     repo.CreateItem(potionNameInput, Convert.ToDecimal(potionPriceInput), Convert.ToInt32(potionType));
                     ReadItems();
                 }
@@ -126,8 +149,47 @@ namespace SQLUserInterface
             }
             else
             {
-                MessageBox.Show("Invalid StoreID. Please enter a valid number.");
+                MessageBox.Show("Please enter a valid number.");
             }
         }
-    }
+
+        private void ux_DeleteItem_Click(object sender, EventArgs e)
+        {
+            int lastRowIndex = ux_ItemTable.AllowUserToAddRows ? ux_ItemTable.Rows.Count - 2 : ux_ItemTable.Rows.Count - 1;
+
+            // Get the value from the "ID" column
+            var idValue = ux_ItemTable.Rows[lastRowIndex].Cells["ItemID"].Value;
+            //Gets the ItemID from the user
+            string ItemIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the ItemID of the Item you want to delete:",
+            "Delete Item",
+            "");
+
+            if (string.IsNullOrWhiteSpace(ItemIDInput))
+            {
+                MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (!Int32.TryParse(ItemIDInput, out int i))
+            {
+                MessageBox.Show("ItemID must be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (Int32.Parse(ItemIDInput) > Int32.Parse((string)idValue))
+            {
+                MessageBox.Show($"ItemID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
+            string itemID = ItemIDInput;
+
+            var itemRepo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            bool success = itemRepo.DeleteItem(Int32.Parse(itemID));
+            if (success)
+            {
+               ReadItems();
+            }
+
+            }
+        }
 }
