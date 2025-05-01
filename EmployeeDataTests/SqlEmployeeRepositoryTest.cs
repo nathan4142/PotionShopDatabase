@@ -8,7 +8,11 @@ namespace PotionShopDatabase.Tests
     public class SqlEmployeeRepositoryTest
     {
 
+<<<<<<< HEAD
+        const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;";
+=======
         const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;";
+>>>>>>> 5cd53c1073177a776e66d456a5504670b072ceb0
 
         private static string GetTestString() => Guid.NewGuid().ToString("N");
 

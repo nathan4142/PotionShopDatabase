@@ -59,6 +59,7 @@
             ux_AddEmployee.TabIndex = 1;
             ux_AddEmployee.Text = "Add Employee";
             ux_AddEmployee.UseVisualStyleBackColor = true;
+            ux_AddEmployee.Click += ux_AddEmployee_Click;
             // 
             // ux_EditEmployeeHours
             // 

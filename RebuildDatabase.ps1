@@ -1,6 +1,10 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
+<<<<<<< HEAD
+   [string] $Database = "zalatta"
+=======
    [string] $Database = "danielcortez"
+>>>>>>> 5cd53c1073177a776e66d456a5504670b072ceb0
 )
 
 # This script requires the SQL Server module for PowerShell.
