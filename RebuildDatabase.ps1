@@ -59,6 +59,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetAllStores.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetCoolestStores.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetMonthlyRankOfStoresByProfit.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Store\PotionShop.GetNumberOfPotionsByType.sql"
 #StoreItem Procedures
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.GetAllStoreItems.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\StoreItem\PotionShop.CreateStoreItem.sql"
