@@ -43,18 +43,19 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(50, 41);
+            label1.Location = new Point(44, 31);
             label1.Name = "label1";
-            label1.Size = new Size(828, 34);
+            label1.Size = new Size(724, 26);
             label1.TabIndex = 0;
             label1.Text = "List of All Employees";
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
             // ux_AddEmployee
             // 
-            ux_AddEmployee.Location = new Point(12, 78);
+            ux_AddEmployee.Location = new Point(10, 58);
+            ux_AddEmployee.Margin = new Padding(3, 2, 3, 2);
             ux_AddEmployee.Name = "ux_AddEmployee";
-            ux_AddEmployee.Size = new Size(126, 29);
+            ux_AddEmployee.Size = new Size(110, 22);
             ux_AddEmployee.TabIndex = 1;
             ux_AddEmployee.Text = "Add Employee";
             ux_AddEmployee.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@
             // ux_EditEmployeeHours
             // 
             ux_EditEmployeeHours.Font = new Font("Segoe UI", 7F);
-            ux_EditEmployeeHours.Location = new Point(156, 78);
+            ux_EditEmployeeHours.Location = new Point(136, 58);
+            ux_EditEmployeeHours.Margin = new Padding(3, 2, 3, 2);
             ux_EditEmployeeHours.Name = "ux_EditEmployeeHours";
-            ux_EditEmployeeHours.Size = new Size(130, 29);
+            ux_EditEmployeeHours.Size = new Size(114, 22);
             ux_EditEmployeeHours.TabIndex = 2;
             ux_EditEmployeeHours.Text = "Edit Employee Hours";
             ux_EditEmployeeHours.UseVisualStyleBackColor = true;
@@ -72,33 +74,37 @@
             // 
             // ux_DeleteEmployee
             // 
-            ux_DeleteEmployee.Location = new Point(734, 78);
+            ux_DeleteEmployee.Location = new Point(642, 58);
+            ux_DeleteEmployee.Margin = new Padding(3, 2, 3, 2);
             ux_DeleteEmployee.Name = "ux_DeleteEmployee";
-            ux_DeleteEmployee.Size = new Size(144, 29);
+            ux_DeleteEmployee.Size = new Size(126, 22);
             ux_DeleteEmployee.TabIndex = 3;
             ux_DeleteEmployee.Text = "Delete Employee";
             ux_DeleteEmployee.UseVisualStyleBackColor = true;
+            ux_DeleteEmployee.Click += ux_DeleteEmployee_Click;
             // 
             // ux_EmployeeTable
             // 
             ux_EmployeeTable.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ux_EmployeeTable.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ux_EmployeeTable.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ux_EmployeeTable.Location = new Point(12, 129);
+            ux_EmployeeTable.Location = new Point(10, 97);
+            ux_EmployeeTable.Margin = new Padding(3, 2, 3, 2);
             ux_EmployeeTable.MultiSelect = false;
             ux_EmployeeTable.Name = "ux_EmployeeTable";
             ux_EmployeeTable.RowHeadersVisible = false;
             ux_EmployeeTable.RowHeadersWidth = 51;
             ux_EmployeeTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            ux_EmployeeTable.Size = new Size(866, 338);
+            ux_EmployeeTable.Size = new Size(758, 254);
             ux_EmployeeTable.TabIndex = 4;
             // 
             // ux_EditEmployeeGoldStars
             // 
             ux_EditEmployeeGoldStars.Font = new Font("Segoe UI", 7F);
-            ux_EditEmployeeGoldStars.Location = new Point(292, 78);
+            ux_EditEmployeeGoldStars.Location = new Point(256, 58);
+            ux_EditEmployeeGoldStars.Margin = new Padding(3, 2, 3, 2);
             ux_EditEmployeeGoldStars.Name = "ux_EditEmployeeGoldStars";
-            ux_EditEmployeeGoldStars.Size = new Size(151, 29);
+            ux_EditEmployeeGoldStars.Size = new Size(132, 22);
             ux_EditEmployeeGoldStars.TabIndex = 5;
             ux_EditEmployeeGoldStars.Text = "Edit Employee Gold Stars";
             ux_EditEmployeeGoldStars.UseVisualStyleBackColor = true;
@@ -107,9 +113,10 @@
             // ux_EditEmployeePosition
             // 
             ux_EditEmployeePosition.Font = new Font("Segoe UI", 7F);
-            ux_EditEmployeePosition.Location = new Point(449, 78);
+            ux_EditEmployeePosition.Location = new Point(393, 58);
+            ux_EditEmployeePosition.Margin = new Padding(3, 2, 3, 2);
             ux_EditEmployeePosition.Name = "ux_EditEmployeePosition";
-            ux_EditEmployeePosition.Size = new Size(139, 29);
+            ux_EditEmployeePosition.Size = new Size(122, 22);
             ux_EditEmployeePosition.TabIndex = 6;
             ux_EditEmployeePosition.Text = "Edit Employee Position";
             ux_EditEmployeePosition.UseVisualStyleBackColor = true;
@@ -118,9 +125,10 @@
             // ux_EditEmployeeSalary
             // 
             ux_EditEmployeeSalary.Font = new Font("Segoe UI", 7F);
-            ux_EditEmployeeSalary.Location = new Point(594, 78);
+            ux_EditEmployeeSalary.Location = new Point(520, 58);
+            ux_EditEmployeeSalary.Margin = new Padding(3, 2, 3, 2);
             ux_EditEmployeeSalary.Name = "ux_EditEmployeeSalary";
-            ux_EditEmployeeSalary.Size = new Size(134, 29);
+            ux_EditEmployeeSalary.Size = new Size(117, 22);
             ux_EditEmployeeSalary.TabIndex = 7;
             ux_EditEmployeeSalary.Text = "Edit Employee Salary";
             ux_EditEmployeeSalary.UseVisualStyleBackColor = true;
@@ -128,9 +136,9 @@
             // 
             // EmployeeTable
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(ux_EditEmployeeSalary);
             Controls.Add(ux_EditEmployeePosition);
             Controls.Add(ux_EditEmployeeGoldStars);
@@ -139,7 +147,6 @@
             Controls.Add(ux_EditEmployeeHours);
             Controls.Add(ux_AddEmployee);
             Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "EmployeeTable";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)ux_EmployeeTable).EndInit();

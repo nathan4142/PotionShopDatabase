@@ -30,6 +30,10 @@
         {
             label1 = new Label();
             ux_StoreItemsTable = new DataGridView();
+            ux_CreateStoreItem = new Button();
+            ux_EditStoreItemQuantity = new Button();
+            ux_EditStoreItemUnitListPrice = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)ux_StoreItemsTable).BeginInit();
             SuspendLayout();
             // 
@@ -53,11 +57,53 @@
             ux_StoreItemsTable.Size = new Size(768, 413);
             ux_StoreItemsTable.TabIndex = 1;
             // 
+            // ux_CreateStoreItem
+            // 
+            ux_CreateStoreItem.Location = new Point(61, 71);
+            ux_CreateStoreItem.Name = "ux_CreateStoreItem";
+            ux_CreateStoreItem.Size = new Size(111, 23);
+            ux_CreateStoreItem.TabIndex = 2;
+            ux_CreateStoreItem.Text = "Add Store Item";
+            ux_CreateStoreItem.UseVisualStyleBackColor = true;
+            // 
+            // ux_EditStoreItemQuantity
+            // 
+            ux_EditStoreItemQuantity.Location = new Point(273, 71);
+            ux_EditStoreItemQuantity.Name = "ux_EditStoreItemQuantity";
+            ux_EditStoreItemQuantity.Size = new Size(94, 23);
+            ux_EditStoreItemQuantity.TabIndex = 3;
+            ux_EditStoreItemQuantity.Text = "Edit Quantity";
+            ux_EditStoreItemQuantity.UseVisualStyleBackColor = true;
+            ux_EditStoreItemQuantity.Click += ux_EditStoreItemQuantity_Click;
+            // 
+            // ux_EditStoreItemUnitListPrice
+            // 
+            ux_EditStoreItemUnitListPrice.Location = new Point(514, 71);
+            ux_EditStoreItemUnitListPrice.Name = "ux_EditStoreItemUnitListPrice";
+            ux_EditStoreItemUnitListPrice.Size = new Size(128, 23);
+            ux_EditStoreItemUnitListPrice.TabIndex = 4;
+            ux_EditStoreItemUnitListPrice.Text = "Edit Unit List Price";
+            ux_EditStoreItemUnitListPrice.UseVisualStyleBackColor = true;
+            ux_EditStoreItemUnitListPrice.Click += ux_EditStoreItemUnitListPrice_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(754, 71);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 5;
+            button1.Text = "Delete Row";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // StoreItemTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(868, 550);
+            Controls.Add(button1);
+            Controls.Add(ux_EditStoreItemUnitListPrice);
+            Controls.Add(ux_EditStoreItemQuantity);
+            Controls.Add(ux_CreateStoreItem);
             Controls.Add(ux_StoreItemsTable);
             Controls.Add(label1);
             Name = "StoreItemTable";
@@ -71,5 +117,9 @@
 
         private Label label1;
         private DataGridView ux_StoreItemsTable;
+        private Button ux_CreateStoreItem;
+        private Button ux_EditStoreItemQuantity;
+        private Button ux_EditStoreItemUnitListPrice;
+        private Button button1;
     }
 }
