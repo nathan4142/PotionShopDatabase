@@ -6,6 +6,7 @@ namespace SQLUserInterface
 {
     public partial class OrderTable : Form
     {
+        private DataTable dataTable = new DataTable();
         public OrderTable()
         {
             InitializeComponent();
@@ -14,12 +15,12 @@ namespace SQLUserInterface
 
         private void ReadOrders()
         {
-            DataTable dataTable = new DataTable();
+            dataTable = new DataTable();
 
             dataTable.Columns.Add("OrderID");
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("OrderedOn");
-            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
 
             foreach (var order in orders)

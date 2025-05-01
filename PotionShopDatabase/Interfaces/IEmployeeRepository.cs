@@ -17,5 +17,9 @@ namespace PotionShopDatabase
         bool EditEmployeeGoldStars(int employeeID, int newGoldStars);
 
         bool EditEmployeeSalary(int employeeID, int newSalary);
+
+        bool EditEmployeePosition(int employeeID, string newPosition);
+
+        bool DeleteEmployee(int employeeID);
     }
 }
