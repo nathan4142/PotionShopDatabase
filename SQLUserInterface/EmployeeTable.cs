@@ -35,7 +35,11 @@ namespace SQLUserInterface
             dataTable.Columns.Add("GoldStars");
 
             //Goes to the repository which is where we will call the methods from
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             //Calls the get all employees method and employees it in the employees variable
             var employees = repo.GetAllEmployees();
             //For each of the employees in employees, we add it to the dataTable
@@ -104,7 +108,11 @@ namespace SQLUserInterface
             string employeeID = employeeIDInput;
             string updatedHours = newHoursInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.EditEmployeeHours(Int32.Parse(employeeID), updatedHours);
             if (success)
             {
@@ -166,7 +174,11 @@ namespace SQLUserInterface
             string employeeID = employeeIDInput;
             string updatedGoldStars = newGoldStarsInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.EditEmployeeGoldStars(Int32.Parse(employeeID), Int32.Parse(updatedGoldStars));
             if (success)
             {
@@ -218,7 +230,11 @@ namespace SQLUserInterface
             string employeeID = employeeIDInput;
             string updatedPosition = newPositionInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.EditEmployeePosition(Int32.Parse(employeeID), updatedPosition);
             if (success)
             {
@@ -278,7 +294,11 @@ namespace SQLUserInterface
             string employeeID = employeeIDInput;
             string updatedSalary = newSalaryInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.EditEmployeeSalary(Int32.Parse(employeeID), Int32.Parse(updatedSalary));
             if (success)
             {
@@ -319,7 +339,11 @@ namespace SQLUserInterface
 
             string employeeID = employeeIDInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.DeleteEmployee(Int32.Parse(employeeID));
 
             if (success)
@@ -428,7 +452,11 @@ namespace SQLUserInterface
             string salary = newSalaryInput;
             string position = positionInput;
 
+<<<<<<< HEAD
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             repo.CreateEmployee(Int32.Parse(storeID), firstName, lastName, employeeHours, Int32.Parse(salary), position, 0);
 
 

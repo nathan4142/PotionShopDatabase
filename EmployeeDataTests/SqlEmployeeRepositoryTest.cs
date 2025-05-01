@@ -9,9 +9,15 @@ namespace PotionShopDatabase.Tests
     {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;";
 =======
         const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;";
+=======
+        const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;";
+=======
+        const string connectionString = @"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;";
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
 >>>>>>> 5cd53c1073177a776e66d456a5504670b072ceb0
 
         private static string GetTestString() => Guid.NewGuid().ToString("N");
