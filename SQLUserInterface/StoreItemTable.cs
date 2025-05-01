@@ -30,7 +30,11 @@ namespace SQLUserInterface
             table.Columns.Add("Quantity");
             table.Columns.Add("UnitListPrice");
 
+<<<<<<< HEAD
             var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
 
             var storeItems = repo.GetAllStoreItems();
 
@@ -47,6 +51,93 @@ namespace SQLUserInterface
             }
 
             this.ux_StoreItemsTable.DataSource = table;
+
+        }
+
+        private void ux_AddStoreItem_Click(object sender, EventArgs e)
+        {
+            string itemIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+                "Enter the ItemID of the new store item:",
+                "Create StoreItem",
+                "");
+            if (string.IsNullOrWhiteSpace(itemIDInput))
+            {
+                MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(itemIDInput) > 50)
+            {
+                MessageBox.Show("ItemID cannot be greater than 50.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            foreach (char c in itemIDInput)
+            {
+                if (c < '0' || c > '9')
+                {
+                    MessageBox.Show("ItemID must contain only integers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            string storeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the StoreID of the store where the store item is:",
+            "Create StoreItem",
+            "");
+            if (string.IsNullOrWhiteSpace(storeIDInput))
+            {
+                MessageBox.Show("StoreID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (Int32.Parse(storeIDInput) > 25)
+            {
+                MessageBox.Show("StoreID cannot be greater than 25.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            foreach (char c in storeIDInput)
+            {
+                if (c < '0' || c > '9')
+                {
+                    MessageBox.Show("StoreID must contain only integers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            string quantityInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the quantity of the store item:",
+            "Create StoreItem",
+            "");
+            if (string.IsNullOrWhiteSpace(quantityInput))
+            {
+                MessageBox.Show("Quantity cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            foreach (char c in quantityInput)
+            {
+                if (c < '0' || c > '9')
+                {
+                    MessageBox.Show("StoreID must contain only integers", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            string unitListPriceInput = Microsoft.VisualBasic.Interaction.InputBox(
+            "Enter the UnitListPrice of the new store item:",
+            "Create StoreItem",
+            "");
+            if (!Decimal.TryParse(unitListPriceInput, out decimal UnitListPrice))
+            {
+                MessageBox.Show("UnitListPrice has to be a number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int itemID = Int32.Parse(itemIDInput);
+            int storeID = Int32.Parse(storeIDInput);
+            int quantity = Int32.Parse(quantityInput);
+            decimal ulp = Decimal.Parse(unitListPriceInput);
+
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+            repo.CreateStoreItem(itemID, storeID, quantity, ulp);
+
 
         }
 
@@ -95,7 +186,11 @@ namespace SQLUserInterface
             string StoreItemID = StoreItemIDInput;
             string updatedQuantity = newQuantityInput;
 
+<<<<<<< HEAD
             var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.EditStoreItemQuantity(Int32.Parse(StoreItemID), Int32.Parse(updatedQuantity));
             if (success)
             {
@@ -149,7 +244,11 @@ namespace SQLUserInterface
             string StoreItemID = StoreItemIDInput;
             string updatedULP = newULPInput;
 
+<<<<<<< HEAD
             var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             bool success = repo.EditStoreItemUnitListPrice(Int32.Parse(StoreItemID), Decimal.Parse(updatedULP));
             if (success)
             {

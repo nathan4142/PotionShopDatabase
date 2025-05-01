@@ -29,7 +29,11 @@ namespace SQLUserInterface
             dataTable.Columns.Add("ItemQuantity");
 
             //Goes to the repository which is where we will call the methods from
+<<<<<<< HEAD
             var repo = new SqlOrderStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+=======
+            var repo = new SqlOrderStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
+>>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             //Calls the get all items method and items it in the items variable
             var orderStoreItems = repo.GetAllOrderStoreItems();
             //For each of the items in items, we add it to the dataTable
