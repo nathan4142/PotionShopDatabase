@@ -71,9 +71,9 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(employeeIDInput) > 500)
+            else if (dataTable.Rows.Contains(employeeIDInput))
             {
-                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("EmployeeID must be in the data table", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Gets the new hours from the user
@@ -112,9 +112,9 @@ namespace SQLUserInterface
                 MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.Parse(employeeIDInput) > 500)
+            else if (dataTable.Rows.Contains(employeeIDInput))
             {
-                MessageBox.Show("EmployeeID cannot be greater than 500.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("EmployeeID must be in the data table", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //Gets the new hours from the user
@@ -309,7 +309,7 @@ namespace SQLUserInterface
             "Enter the Salary for the new employee:",
             "Create Employee",
             "");
-            if (string.IsNullOrWhiteSpace(firstNameInput))
+            if (string.IsNullOrWhiteSpace(newSalaryInput))
             {
                 MessageBox.Show("Salary cannot be empty cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -344,11 +344,11 @@ namespace SQLUserInterface
             string position = positionInput;
 
             var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
-            repo.CreateEmployee(Int32.Parse(storeID), firstName, lastName, employeeHours, Int32.Parse(salary), position, 0);
-
-
+            var succeed = repo.CreateEmployee(Int32.Parse(storeID), firstName, lastName, employeeHours, Int32.Parse(salary), position, 0);
+            if (succeed != null)
+            {
                 ReadEmployees();
-            
+            }
         }
     }
 }
