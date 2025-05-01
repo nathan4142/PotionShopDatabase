@@ -9,7 +9,7 @@ using DataAccess;
 
 namespace PotionShopDatabase.DataDelegates
 {
-    internal class CreateStoreDataDelegate(string address, string stateCode, string zipCode) : NonQueryDataDelegate<Store>("Store.CreateStore")
+    internal class CreateStoreDataDelegate(string address, string stateCode, string zipCode) : NonQueryDataDelegate<Store>("PotionShop.CreateStore")
     {
         public override void PrepareCommand(Command command)
         {

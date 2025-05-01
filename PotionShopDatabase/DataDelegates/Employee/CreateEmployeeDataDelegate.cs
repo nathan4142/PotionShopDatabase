@@ -11,7 +11,7 @@ using System.Data;
 namespace PotionShopDatabase.DataDelegates
 {
     internal class CreateEmployeeDataDelegate(int storeID, string firstName, string lastName, string employeeHours, int salary, string position, int goldStars)
-        : NonQueryDataDelegate<Employee>("Employee.CreateEmployee")
+        : NonQueryDataDelegate<Employee>("PotionShop.CreateEmployee")
 
     {//In his project he has some that are private readonly but some arent and they are just plugged in elsewhere. Ill plug in elsewhere for now
         /*

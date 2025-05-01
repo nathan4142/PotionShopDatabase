@@ -10,7 +10,7 @@ using System.Data;
 namespace PotionShopDatabase.DataDelegates
 {
     internal class CreateOrderDataDelegate(int storeID, DateTime orderedOn)
-        : NonQueryDataDelegate<Order>("Order.CreateOrder")
+        : NonQueryDataDelegate<Order>("PotionShop.CreateOrder")
     {
         public override void PrepareCommand(Command command)
         {
