@@ -20,11 +20,8 @@ namespace SQLUserInterface
             dataTable.Columns.Add("OrderID");
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("OrderedOn");
-<<<<<<< HEAD
+
             var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
-=======
-            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
->>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
             var orders = repo.GetAllOrders();
 
             foreach (var order in orders)
@@ -57,11 +54,9 @@ namespace SQLUserInterface
                 else
                 {
                     DateTime orderedOn = DateTime.Now;
-<<<<<<< HEAD
+
                     var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
-=======
-                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=danielcortez;Integrated Security=SSPI;");
->>>>>>> 086b8a7fcfd00d9bdf132f4132bfd72a919c55cd
+
                     repo.CreateOrder(storeID, orderedOn);
                     ReadOrders();
                 }
