@@ -185,7 +185,7 @@ namespace SQLUserInterface
 
             parentForm.AllowClosing(); 
 
-            this.Close();
+            this.Close();//
 
         }
     }
