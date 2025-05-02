@@ -31,7 +31,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("Price");
 
             //Goes to the repository which is where we will call the methods from
-            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             //Calls the get all items method and items it in the items variable
             var items = repo.GetAllItems();
@@ -102,7 +102,7 @@ namespace SQLUserInterface
             string updatedPrice = newPriceInput;
 
 
-            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditItemPrice(Int32.Parse(itemID), Decimal.Parse(updatedPrice));
             if (success)
@@ -146,7 +146,7 @@ namespace SQLUserInterface
                 else
                 {
 
-                    var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+                    var repo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
                     repo.CreateItem(potionNameInput, Convert.ToDecimal(potionPriceInput), Convert.ToInt32(potionType));
                     ReadItems();
                 }
@@ -188,7 +188,7 @@ namespace SQLUserInterface
 
             string itemID = ItemIDInput;
 
-            var itemRepo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var itemRepo = new SqlItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             bool success = itemRepo.DeleteItem(Int32.Parse(itemID));
             if (success)
             {
