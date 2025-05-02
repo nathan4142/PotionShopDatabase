@@ -1,6 +1,6 @@
 Param(
    [string] $Server = "(localdb)\MSSQLLocalDb",
-   [string] $Database = "zalatta"
+   [string] $Database = "nathanproctor"
 
 )
 
