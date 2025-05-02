@@ -36,7 +36,7 @@ namespace SQLUserInterface
 
             //Goes to the repository which is where we will call the methods from
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             //Calls the get all employees method and employees it in the employees variable
             var employees = repo.GetAllEmployees();
@@ -106,7 +106,7 @@ namespace SQLUserInterface
             string employeeID = employeeIDInput;
             string updatedHours = newHoursInput;
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeeHours(Int32.Parse(employeeID), updatedHours);
             if (success)
@@ -154,7 +154,7 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(newGoldStarsInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gold Stars cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             foreach (char c in newGoldStarsInput)
@@ -170,7 +170,7 @@ namespace SQLUserInterface
             string updatedGoldStars = newGoldStarsInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeeGoldStars(Int32.Parse(employeeID), Int32.Parse(updatedGoldStars));
             if (success)
@@ -224,7 +224,7 @@ namespace SQLUserInterface
             string updatedPosition = newPositionInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeePosition(Int32.Parse(employeeID), updatedPosition);
             if (success)
@@ -270,7 +270,7 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(newSalaryInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Salary cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             foreach (char c in newSalaryInput)
@@ -286,7 +286,7 @@ namespace SQLUserInterface
             string updatedSalary = newSalaryInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeeSalary(Int32.Parse(employeeID), Int32.Parse(updatedSalary));
             if (success)
@@ -327,7 +327,7 @@ namespace SQLUserInterface
 
 
             string employeeID = employeeIDInput;
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             bool success = repo.DeleteEmployee(Int32.Parse(employeeID));
 
@@ -354,7 +354,7 @@ namespace SQLUserInterface
             }
             if (string.IsNullOrWhiteSpace(storeIDInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("StoreID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (Int32.Parse(storeIDInput) > 25)
@@ -423,7 +423,7 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(firstNameInput))
             {
-                MessageBox.Show("Salary cannot be empty cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Position cannot be empty cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -438,7 +438,7 @@ namespace SQLUserInterface
             string position = positionInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
             repo.CreateEmployee(Int32.Parse(storeID), firstName, lastName, employeeHours, Int32.Parse(salary), position, 0);
 
@@ -447,15 +447,6 @@ namespace SQLUserInterface
 
         }
 
-        private void ux_Test_Click(object sender, EventArgs e)
-        {
-            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
-
-            // Get the value from the "ID" column
-            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
-            MessageBox.Show((string?)idValue);
-
-        }
     }
 }
 

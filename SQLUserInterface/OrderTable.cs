@@ -21,7 +21,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("OrderedOn");
 
-            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
 
             foreach (var order in orders)
@@ -41,7 +41,7 @@ namespace SQLUserInterface
         private void ux_AddOrder_Click(object sender, EventArgs e)
         {
             string storeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
-            "Enter the StoreID of the new order:",
+            "Enter the StoreID where the order was placed:",
             "Add Order",
             "");
             if (int.TryParse(storeIDInput, out int storeID))
@@ -55,7 +55,7 @@ namespace SQLUserInterface
                 {
                     DateTime orderedOn = DateTime.Now;
 
-                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
                     repo.CreateOrder(storeID, orderedOn);
                     ReadOrders();
