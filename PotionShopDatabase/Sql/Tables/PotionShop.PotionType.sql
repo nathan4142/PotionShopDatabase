@@ -3,7 +3,7 @@ BEGIN
    CREATE TABLE PotionShop.PotionType
    (
       PotionTypeID INT NOT NULL,
-      [Name] VARCHAR(16) NOT NULL,
+      [Name] NVARCHAR(16) NOT NULL,
 
       CONSTRAINT PK_PotionShop_PotionType_PotionTypeID PRIMARY KEY CLUSTERED
       (

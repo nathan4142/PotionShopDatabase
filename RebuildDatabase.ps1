@@ -81,7 +81,7 @@ Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShop
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Aggregates\PotionShop.GetNumberOfPotionsByType.sql"
 Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Procedures\Aggregates\PotionShop.GetStoreInventoryValueByStore.sql"
 Write-Host "Inserting data..."
-#Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Data\PotionShop.PotionType.sql"
+Invoke-SqlCmd -ServerInstance $Server -Database $Database -InputFile "PotionShopDatabase\Sql\Data\PotionShop.PotionType.sql"
 
 Write-Host "Rebuild completed."
 Write-Host ""
