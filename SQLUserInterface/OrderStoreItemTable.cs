@@ -30,7 +30,7 @@ namespace SQLUserInterface
 
             //Goes to the repository which is where we will call the methods from
 
-            var repo = new SqlOrderStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlOrderStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             //Calls the get all items method and items it in the items variable
             var orderStoreItems = repo.GetAllOrderStoreItems();
             //For each of the items in items, we add it to the dataTable

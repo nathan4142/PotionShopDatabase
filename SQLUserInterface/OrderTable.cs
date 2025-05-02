@@ -21,7 +21,7 @@ namespace SQLUserInterface
             dataTable.Columns.Add("StoreID");
             dataTable.Columns.Add("OrderedOn");
 
-            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+            var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
             var orders = repo.GetAllOrders();
 
             foreach (var order in orders)
@@ -55,7 +55,7 @@ namespace SQLUserInterface
                 {
                     DateTime orderedOn = DateTime.Now;
 
-                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
+                    var repo = new SqlOrderRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
 
                     repo.CreateOrder(storeID, orderedOn);
                     ReadOrders();
