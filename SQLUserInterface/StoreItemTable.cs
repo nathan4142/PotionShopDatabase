@@ -31,7 +31,7 @@ namespace SQLUserInterface
             table.Columns.Add("UnitListPrice");
 
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
 
             var storeItems = repo.GetAllStoreItems();
@@ -99,7 +99,7 @@ namespace SQLUserInterface
             string updatedQuantity = newQuantityInput;
 
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditStoreItemQuantity(Int32.Parse(StoreItemID), Int32.Parse(updatedQuantity));
             if (success)
@@ -155,7 +155,7 @@ namespace SQLUserInterface
             string updatedULP = newULPInput;
 
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditStoreItemUnitListPrice(Int32.Parse(StoreItemID), Decimal.Parse(updatedULP));
             if (success)
@@ -195,7 +195,7 @@ namespace SQLUserInterface
 
             string StoreItemID = StoreItemIDInput;
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             bool success = repo.DeleteStoreItem(Int32.Parse(StoreItemID));
 
             if (success)
@@ -284,7 +284,7 @@ namespace SQLUserInterface
             string quantity = newQuantityInput;
             string ulp = newULPInput;
 
-            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlStoreItemRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
             repo.CreateStoreItem(Int32.Parse(itemID), Int32.Parse(storeID), Int32.Parse(quantity), Decimal.Parse(ulp));
 
 

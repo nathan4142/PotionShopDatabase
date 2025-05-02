@@ -36,7 +36,7 @@ namespace SQLUserInterface
 
             //Goes to the repository which is where we will call the methods from
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             //Calls the get all employees method and employees it in the employees variable
             var employees = repo.GetAllEmployees();
@@ -106,7 +106,7 @@ namespace SQLUserInterface
             string employeeID = employeeIDInput;
             string updatedHours = newHoursInput;
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeeHours(Int32.Parse(employeeID), updatedHours);
             if (success)
@@ -170,7 +170,7 @@ namespace SQLUserInterface
             string updatedGoldStars = newGoldStarsInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeeGoldStars(Int32.Parse(employeeID), Int32.Parse(updatedGoldStars));
             if (success)
@@ -224,7 +224,7 @@ namespace SQLUserInterface
             string updatedPosition = newPositionInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeePosition(Int32.Parse(employeeID), updatedPosition);
             if (success)
@@ -286,7 +286,7 @@ namespace SQLUserInterface
             string updatedSalary = newSalaryInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.EditEmployeeSalary(Int32.Parse(employeeID), Int32.Parse(updatedSalary));
             if (success)
@@ -327,7 +327,7 @@ namespace SQLUserInterface
 
 
             string employeeID = employeeIDInput;
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             bool success = repo.DeleteEmployee(Int32.Parse(employeeID));
 
@@ -438,7 +438,7 @@ namespace SQLUserInterface
             string position = positionInput;
 
 
-            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=zalatta;Integrated Security=SSPI;");
+            var repo = new SqlEmployeeRepository(@"Server=(localdb)\MSSQLLocalDb;Database=nathanproctor;Integrated Security=SSPI;");
 
             repo.CreateEmployee(Int32.Parse(storeID), firstName, lastName, employeeHours, Int32.Parse(salary), position, 0);
 

@@ -18,7 +18,7 @@ END;
 
 INSERT PotionShop.Store([Address], StateCode, ZipCode)
 VALUES
-	 (N'Wichita', N'KS', N'67215'),
+ (N'Wichita', N'KS', N'67215'),
  (N'Battle Creek', N'MI', N'49018'),
  (N'Tampa', N'FL', N'33661'),
  (N'Chicago', N'IL', N'60691'),
