@@ -69,7 +69,7 @@ namespace SQLUserInterface
                 MessageBox.Show("StoreItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.TryParse(StoreItemIDInput, out int value))
+            else if (!Int32.TryParse(StoreItemIDInput, out int value))
             {
                 MessageBox.Show("StoreItemID has to be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -89,7 +89,7 @@ namespace SQLUserInterface
                 MessageBox.Show("Quantity cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.TryParse(newQuantityInput, out int value))
+            else if (!Int32.TryParse(newQuantityInput, out int value))
             {
                 MessageBox.Show("The new Quantity has to be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -124,7 +124,7 @@ namespace SQLUserInterface
                 MessageBox.Show("StoreItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.TryParse(StoreItemIDInput, out int value))
+            else if (!Int32.TryParse(StoreItemIDInput, out int value))
             {
                 MessageBox.Show("StoreItemID has to be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -145,7 +145,7 @@ namespace SQLUserInterface
                 MessageBox.Show("Unit List Price cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Decimal.TryParse(newULPInput, out decimal value) || value >= 1000.00m)
+            else if (!Decimal.TryParse(newULPInput, out decimal value) || value >= 1000.00m)
             {
                 MessageBox.Show("Unit List Price has to be a number less than 1000.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -178,16 +178,17 @@ namespace SQLUserInterface
 
             if (string.IsNullOrWhiteSpace(StoreItemIDInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("StoreItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.TryParse(StoreItemIDInput, out int i))
+            else if (!Int32.TryParse(StoreItemIDInput, out int i))
             {
-
+                MessageBox.Show($"StoreItemID has to be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else if (Int32.Parse(StoreItemIDInput) > Int32.Parse((string)idValue))
             {
-                MessageBox.Show($"EmployeeID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"StoreItemID cannot be greater than {idValue}.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

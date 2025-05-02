@@ -36,7 +36,6 @@
             ux_EditEmployeeGoldStars = new Button();
             ux_EditEmployeePosition = new Button();
             ux_EditEmployeeSalary = new Button();
-            ux_Test = new Button();
             ((System.ComponentModel.ISupportInitialize)ux_EmployeeTable).BeginInit();
             SuspendLayout();
             // 
@@ -136,22 +135,11 @@
             ux_EditEmployeeSalary.UseVisualStyleBackColor = true;
             ux_EditEmployeeSalary.Click += ux_EditEmployeeSalary_Click;
             // 
-            // ux_Test
-            // 
-            ux_Test.Location = new Point(320, 385);
-            ux_Test.Name = "ux_Test";
-            ux_Test.Size = new Size(75, 23);
-            ux_Test.TabIndex = 8;
-            ux_Test.Text = "Test";
-            ux_Test.UseVisualStyleBackColor = true;
-            ux_Test.Click += ux_Test_Click;
-            // 
             // EmployeeTable
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(ux_Test);
             Controls.Add(ux_EditEmployeeSalary);
             Controls.Add(ux_EditEmployeePosition);
             Controls.Add(ux_EditEmployeeGoldStars);
@@ -176,6 +164,5 @@
         private Button ux_EditEmployeeGoldStars;
         private Button ux_EditEmployeePosition;
         private Button ux_EditEmployeeSalary;
-        private Button ux_Test;
     }
 }

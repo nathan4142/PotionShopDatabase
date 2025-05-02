@@ -154,7 +154,7 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(newGoldStarsInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Gold Stars cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             foreach (char c in newGoldStarsInput)
@@ -270,7 +270,7 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(newSalaryInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Salary cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             foreach (char c in newSalaryInput)
@@ -354,7 +354,7 @@ namespace SQLUserInterface
             }
             if (string.IsNullOrWhiteSpace(storeIDInput))
             {
-                MessageBox.Show("EmployeeID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("StoreID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (Int32.Parse(storeIDInput) > 25)
@@ -423,7 +423,7 @@ namespace SQLUserInterface
             "");
             if (string.IsNullOrWhiteSpace(firstNameInput))
             {
-                MessageBox.Show("Salary cannot be empty cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Position cannot be empty cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -447,15 +447,6 @@ namespace SQLUserInterface
 
         }
 
-        private void ux_Test_Click(object sender, EventArgs e)
-        {
-            int lastRowIndex = ux_EmployeeTable.AllowUserToAddRows ? ux_EmployeeTable.Rows.Count - 2 : ux_EmployeeTable.Rows.Count - 1;
-
-            // Get the value from the "ID" column
-            var idValue = ux_EmployeeTable.Rows[lastRowIndex].Cells["EmployeeID"].Value;
-            MessageBox.Show((string?)idValue);
-
-        }
     }
 }
 

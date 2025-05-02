@@ -41,8 +41,8 @@ namespace SQLUserInterface
         private void ux_AddOrder_Click(object sender, EventArgs e)
         {
             string storeIDInput = Microsoft.VisualBasic.Interaction.InputBox(
-            "Enter the StoreID of the new employee:",
-            "Add Employee",
+            "Enter the StoreID where the order was placed:",
+            "Add Order",
             "");
             if (int.TryParse(storeIDInput, out int storeID))
             {

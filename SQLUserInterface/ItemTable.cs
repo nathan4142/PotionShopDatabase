@@ -68,9 +68,10 @@ namespace SQLUserInterface
                 MessageBox.Show("ItemID cannot be empty.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            else if (Int32.TryParse(ItemIDInput, out int i))
+            else if (!Int32.TryParse(ItemIDInput, out int i))
             {
                 MessageBox.Show("ItemID must be an integer.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             else if (Int32.Parse(ItemIDInput) > Int32.Parse((string)idValue))
             {
@@ -114,7 +115,7 @@ namespace SQLUserInterface
         {
             //Gets the potion name
             string potionNameInput = Microsoft.VisualBasic.Interaction.InputBox(
-            "Enter the name of the new item:",
+            "Enter the name of the new Potion:",
             "Add Item",
             "");
             if (string.IsNullOrWhiteSpace(potionNameInput))
