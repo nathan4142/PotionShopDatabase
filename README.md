@@ -5,7 +5,8 @@ The DataDelegates folder contains the subfolders for each of the tables and an a
 The Interfaces and Repositories folders contain the interfaces and repositories for each of the tables.
 The models folder helps construct the object for each table.
 The Sql folder contains the subfolders Data, Procedures, Schemas, and tables
-  Data contains the sql scripts to initially populate the tables.
+  Data contains the sql script to initially populate the tables.
   Procedures contains the subfolders for each table and aggregate functions and is the sql for each procedure.
   Schemas creates the schema for PotionShop in sql
   Tables contains the sql used to create all tables along with a script to drop all tables
+The last project is our SQLUserInterface. This contains the forms for all of the tables and has the c# to populate the windows forms with data from the sql
